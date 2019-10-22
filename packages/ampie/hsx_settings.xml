@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+	<data_type>csv</data_type>
+	<csv_separator>;</csv_separator>
+	<skip_rows/>
+	<font/>
+	<text_size>11</text_size>
+	<text_color>#FFFFFF</text_color>
+	<decimals_separator>.</decimals_separator>
+	<thousands_separator>,</thousands_separator>
+	<digits_after_decimal>0</digits_after_decimal>
+	<scientific_min/>
+	<scientific_max/>
+	<redraw>true</redraw>
+	<reload_data_interval>30</reload_data_interval>
+	<preloader_on_reload>false</preloader_on_reload>
+	<add_time_stamp>true</add_time_stamp>
+	<precision/>
+	<connect>true</connect>
+	<hide_bullets_count>5</hide_bullets_count>
+	<link_target/>
+	<start_on_axis>false</start_on_axis>
+	<colors/>
+	<rescale_on_hide/>
+	<js_enabled/>
+
+	<background>
+		<color>#000000</color>
+		<alpha/>
+		<border_color/>
+		<border_alpha/>
+		<file/>
+	</background>
+	<plot_area>
+		<color/>
+		<alpha/>
+		<border_color/>
+		<border_alpha/>
+		<margins>
+			<left>60</left>
+			<top>20</top>
+			<right>60</right>
+			<bottom>30</bottom>
+		</margins>
+	</plot_area>
+
+	<scroller>
+		<enabled/>
+		<y/>
+		<color/>
+		<alpha/>
+		<bg_color/>
+		<bg_alpha/>
+		<height/>
+	</scroller>
+
+	<grid>
+		<x>
+			<enabled/>
+			<color>#FFFFFF</color>
+			<alpha>30</alpha>
+			<dashed/>
+			<dash_length/>
+			<approx_count/>
+		</x>
+		<y_left>
+			<enabled/>
+			<color>#FFFFFF</color>
+			<alpha>30</alpha>
+			<dashed/>
+			<dash_length/>
+			<approx_count/>
+			<fill_color/>
+			<fill_alpha/>
+		</y_left>
+		<y_right>
+			<enabled>false</enabled>
+			<color/>
+			<alpha/>
+			<dashed/>
+			<dash_length/>
+			<approx_count/>
+			<fill_color/>
+			<fill_alpha/>
+		</y_right>
+	</grid>
+
+	<values>
+		<x>
+			<enabled/>
+			<rotate/>
+			<frequency/>
+			<skip_first/>
+			<skip_last/>
+			<color/>
+			<text_size/>
+			<inside/>
+		</x>
+		<y_left>
+			<enabled/>
+			<reverse/>
+			<rotate/>
+			<min/>
+			<max/>
+			<strict_min_max/>
+			<frequency/>
+			<skip_first/>
+			<skip_last/>
+			<color/>
+			<text_size/>
+			<unit/>
+			<unit_position/>
+			<integers_only/>
+			<inside/>
+			<duration/>
+		</y_left>
+		<y_right>
+			<enabled/>
+			<reverse/>
+			<rotate/>
+			<min/>
+			<max/>
+			<strict_min_max/>
+			<frequency/>
+			<skip_first/>
+			<skip_last/>
+			<color/>
+			<text_size/>
+			<unit> tỷ</unit>
+			<unit_position/>
+			<integers_only/>
+			<inside/>
+			<duration/>
+		</y_right>
+	</values>
+
+	<axes>
+		<!-- axes -->
+		<x>
+			<color/>
+			<alpha/>
+			<width/>
+			<tick_length/>
+		</x>
+		<y_left>
+			<type/>
+			<color/>
+			<alpha/>
+			<width/>
+			<tick_length/>
+			<logarithmic/>
+		</y_left>
+		<y_right>
+			<type/>
+			<color/>
+			<alpha/>
+			<width/>
+			<tick_length/>
+			<logarithmic/>
+		</y_right>
+	</axes>
+
+	<indicator>
+		<enabled/>
+		<zoomable/>
+		<color/>
+		<line_alpha/>
+		<selection_color/>
+		<selection_alpha/>
+		<x_balloon_enabled/>
+		<x_balloon_text_color/>
+	</indicator>
+
+	<balloon>
+		<enabled>false</enabled>
+		<only_one/>
+		<on_off/>
+		<color/>
+		<alpha/>
+		<text_color/>
+		<text_size/>
+		<max_width/>
+		<corner_radius/>
+		<border_width/>
+		<border_alpha/>
+		<border_color/>
+	</balloon>
+
+	<legend>
+		<enabled/>
+		<x>180</x>
+		<y>2</y>
+		<width>320</width>
+		<max_columns/>
+		<color/>
+		<alpha/>
+		<border_color/>
+		<border_alpha/>
+		<text_color/>
+		<text_color_hover/>
+		<text_size/>
+		<spacing/>
+		<margins/>
+		<graph_on_off/>
+		<reverse_order/>
+		<align/>
+		<key>
+			<size/>
+			<border_color/>
+			<key_mark_color/>
+		</key>
+		<values>
+			<enabled>true</enabled>
+			<width>44</width>
+			<align>left</align>
+			<text><![CDATA[]]></text>
+		</values>
+	</legend>
+
+	<vertical_lines>
+		<width>20</width>
+		<alpha/>
+		<clustered/>
+		<mask/>
+	</vertical_lines>
+
+	<zoom_out_button>
+		<x/>
+		<y/>
+		<color/>
+		<alpha/>
+		<text_color/>
+		<text_color_hover/>
+		<text_size/>
+		<text/>
+	</zoom_out_button>
+
+	<help>
+		<button>
+			<x/>
+			<y/>
+			<color/>
+			<alpha/>
+			<text_color/>
+			<text_color_hover/>
+			<text_size/>
+			<text/>
+		</button>
+		<balloon>
+			<color/>
+			<alpha/>
+			<width/>
+			<text_color/>
+			<text_size/>
+			<text/>
+		</balloon>
+	</help>
+
+	<export_as_image>
+		<file/>
+		<target/>
+		<x/>
+		<y/>
+		<color/>
+		<alpha/>
+		<text_color/>
+		<text_size/>
+	</export_as_image>
+
+	<error_messages>
+		<enabled/>
+		<x/>
+		<y/>
+		<color/>
+		<alpha/>
+		<text_color/>
+		<text_size/>
+	</error_messages>
+
+	<strings>
+		<no_data>Vui lòng chọn biểu đồ cần hiển thị.</no_data>
+		<export_as_image/>
+		<error_in_data_file>Lỗi nạp dữ liệu.</error_in_data_file>
+		<collecting_data/>
+		<wrong_zoom_value/>
+		<ss/>
+		<mm/>
+		<hh/>
+		<DD/>
+	</strings>
+
+	<context_menu>
+
+		<default_items>
+			<zoom/>
+			<print/>
+		</default_items>
+	</context_menu>
+
+	<labels>
+
+		<label lid="0">
+			<x>40</x>
+			<y/>
+			<rotate/>
+			<width>120</width>
+			<align/>
+			<text_color/>
+			<text_size/>
+			<text>
+				<![CDATA[<b></b>]]>
+			</text>
+		</label>
+
+	</labels>
+
+
+	<graphs>
+		<graph gid="1">
+
+			<axis>left</axis>
+			<title>VN Index: </title>
+			<color>#ff8500</color>
+			<color_hover/>
+			<line_alpha/>
+			<line_width>2</line_width>
+			<fill_alpha>30</fill_alpha>
+			<fill_color/>
+			<balloon_color/>
+			<balloon_alpha/>
+			<balloon_text_color/>
+			<bullet>round_outlined</bullet>
+			<bullet_size>10</bullet_size>
+			<bullet_color/>
+			<bullet_alpha/>
+			<hidden/>
+			<selected/>
+			<data_labels>
+				<![CDATA[]]>    
+			</data_labels>
+			<data_labels_text_color/>
+			
+			<data_labels_text_size/>
+			<data_labels_position/>
+			<vertical_lines/>
+			<visible_in_legend/>
+		</graph>
+		<graph gid="2">
+			<axis>right</axis>
+			<title>GTGD: </title>
+			<line_alpha>0</line_alpha>
+			<vertical_lines>true</vertical_lines>
+			<bullet/>
+			<bullet_alpha/>
+			<color>#999999</color>
+			
+		</graph>
+	</graphs>
+
+	<guides>
+		<max_min/>
+		<guide>
+			<axis/>
+			<start_value/>
+			<end_value/>
+			<title/>
+			<width/>
+			<color/>
+			<alpha/>
+			<fill_color/>
+			<fill_alpha/>
+			<inside/>
+			<centered/>
+			<rotate/>
+			<text_size/>
+			<text_color/>
+			<dashed/>
+			<dash_length/>
+		</guide>
+	</guides>
+
+</settings>

@@ -1,0 +1,69 @@
+﻿<tr>
+    <th data-index="0" rowspan="2" class="sortable cell-highlight" onclick="AV.StockBoard.board.order(0, this);">(*=Lang.symbolCode+Stock.orderArrow(0)*)</th>
+    <th data-index="1" rowspan="2" class="cell-highlight sortable" onclick="AV.StockBoard.board.order(-1, this);">(*=Lang.Ceil+Stock.orderArrow(-1)*)</th>
+    <th data-index="2" rowspan="2" class="cell-highlight sortable" onclick="AV.StockBoard.board.order(-2, this);">(*=Lang.Floor+Stock.orderArrow(-2)*)</th>
+    <th data-index="3" rowspan="2" class="cell-highlight sortable" onclick="AV.StockBoard.board.order(-3, this);">(*=Lang.Ref+Stock.orderArrow(-3)*)</th>
+    <th colspan="6">(*=Lang.Best_Bid*)</th>
+    <th colspan="3" class="cell-highlight marketStatusHeader">(*=Stock.getMarketStatusHeader()*)</th>
+    <th colspan="6">(*=Lang.Best_Ask*)</th>
+    <th data-index="19" rowspan="2" class="sortable has-toggle toggle--tong">
+        <a class="toggle__left" data-toggle="tong"><i class="fa fa-caret-left"></i></a>
+        <span class="hidden-first">(*=Lang.Total_Val*)</span>
+        <span>(*=Lang.Total_Vol*)</span>
+        <a class="toggle__right" data-toggle="tong">
+            <i class="fa fa-caret-right"></i>
+        </a>
+    </th>
+    <th colspan="3" class="has-toggle toggle--gia cell-highlight">
+        <a class="toggle__left" data-toggle="gia"><i class="fa fa-caret-left"></i></a>
+        <span class="hidden-first">Dư</span>
+        <span>Giá</span>
+        <a class="toggle__right" data-toggle="gia"><i class="fa fa-caret-right"></i></a>
+    </th>
+    <th colspan="2" class="has-toggle toggle--dtnn toggle-col-span">
+        <a class="toggle__left" data-toggle="dtnn"><i class="fa fa-caret-left"></i></a>
+        <span>NĐTNN</span>
+        <a class="toggle__right" data-toggle="dtnn"><i class="fa fa-caret-right"></i></a>
+    </th>
+</tr>
+<tr>
+    <th data-index="4" class="sortable" onclick="AV.StockBoard.board.order(1, this);">(*=Lang.Pri_3+Stock.orderArrow(1)*)</th>
+    <th data-index="5" class="sortable headerSortDown">(*=Lang.Vol_3+Stock.orderArrow(2)*)</th>
+    <th data-index="6" class="sortable">(*=Lang.Pri_2+Stock.orderArrow(3)*)</th>
+    <th data-index="7" class="sortable">(*=Lang.Vol_2+Stock.orderArrow(4)*)</th>
+    <th data-index="8" class="sortable">(*=Lang.Pri_1+Stock.orderArrow(5)*)</th>
+    <th data-index="9" class="sortable">(*=Lang.Vol_1+Stock.orderArrow(6)*)</th>
+    <th data-index="11" class="cell-highlight sortable">(*=Lang.Pri+Stock.orderArrow(8)*)</th>
+    <th data-index="10" class="cell-highlight sortable has-toggle toggle--percent">
+        <a class="toggle__left" data-toggle="percent"><i class="fa fa-caret-left"></i></a>
+        <span class="hidden-first">%</span>
+        <span class="">+/-</span>
+        <a class="toggle__right" data-toggle="percent"><i class="fa fa-caret-right"></i></a>
+    </th>
+    <th data-index="12" class="cell-highlight sortable">(*=Lang.Vol+Stock.orderArrow(9)*)</th>
+    <th data-index="13" class="sortable">(*=Lang.Pri_1+Stock.orderArrow(11)*)</th>
+    <th data-index="14" class="sortable">(*=Lang.Vol_1+Stock.orderArrow(12)*)</th>
+    <th data-index="15" class="sortable">(*=Lang.Pri_2+Stock.orderArrow(13)*)</th>
+    <th data-index="16" class="sortable">(*=Lang.Vol_2+Stock.orderArrow(14)*)</th>
+    <th data-index="17" class="sortable">(*=Lang.Pri_3+Stock.orderArrow(15)*)</th>
+    <th data-index="18" class="sortable">(*=Lang.Vol_3+Stock.orderArrow(16)*)</th>
+    <th class="cell-highlight toggle--gia">
+        <span data-index="20" class="sortable hidden-first">(*=Lang.Buy_Vol+Stock.orderArrow(34)*)</span>
+        <span data-index="20" class="sortable">(*=Lang.High+Stock.orderArrow(18)*)</span>
+    </th>
+    <th class="cell-highlight toggle--gia">
+        <span data-index="21" class="sortable hidden-first">(*=Lang.Sell_Vol+Stock.orderArrow(35)*)</span>
+        <span data-index="21" class="sortable">(*=Lang.Low+Stock.orderArrow(19)*)</span>
+    </th>
+    <th class="cell-highlight toggle--gia toggle--hidden">
+        <span data-index="22" class="sortable">(*=Lang.Open+Stock.orderArrow(17)*)</span>
+    </th>
+    <th class="toggle--dtnn">
+        <span data-index="23" class="sortable hidden-first">(*=Lang.Room+Stock.orderArrow(27)*)</span>
+        <span data-index="23" class="sortable">(*=Lang.Foreign+'<br />'+Lang.For_Buy+Stock.orderArrow(20)*)</span>
+    </th>
+    <th class="toggle--dtnn">
+        <span data-index="24" class="sortable hidden-first">%</span>
+        <span data-index="24" class="sortable">(*=Lang.Foreign+'<br />'+Lang.For_Sell+Stock.orderArrow(21)*)</span>
+    </th>
+</tr>

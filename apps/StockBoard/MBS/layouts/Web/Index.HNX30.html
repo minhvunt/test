@@ -1,0 +1,69 @@
+﻿(*
+        var pos = 0;
+            for (var i = 0; i < Stock.indexes.length; i++) {
+            var name = Stock.indexes[i][0];
+    console.log(name);
+            if(name == 'HNX30'){
+                pos = i;
+                break;
+            }
+        }
+        *)
+<div class="index-bg">
+    <div class="index-bgLeft">
+        <div class="index-bgRight">
+            <table cellpadding="0" cellspacing="0" width="100%" style="padding-left: 15px; padding-top: 5px;">
+                <tr>
+                    <td align="center" width="70%">
+                        <center id="info-stock">
+                            <table width="100%" cellpadding="0" cellspacing="0" class="table-info-stock">
+                                <tr>
+                                    <td nowrap="nowrap">
+                                        <div class="HA-index">
+                                            <center id="info-stock">
+                                                <table width="100%" cellpadding="0" cellspacing="0" class="table-info-stock">
+                                                    <tr>
+                                                        <td nowrap="nowrap">
+                                                            <span class="stock-label">HNX30 Index &nbsp;</span>
+                                                            <span class="(*=data.indexStatus[pos].clss*)" id="index-(*=pos*)">
+                                                                <span id="index-2-(*=pos*)">(*=AV.numberFormat(data.indexes[pos]?data.indexes[pos][2]:'')*)</span>
+                                                                <span id="index-emo-(*=pos*)">(*=data.indexStatus[pos].emo*)</span>&nbsp;
+                                                                <span id="index-3-(*=pos*)">(*=AV.numberFormat(data.indexes[pos]?data.indexes[pos][3]:'')*)</span>&nbsp;
+                                                                <span id="index-4-(*=pos*)">(*=AV.numberFormat(data.indexes[pos]?data.indexes[pos][4]:'')*)</span>%&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <span class="stock-label">(*=Lang.totalVolumn*): </span>&nbsp;
+                                                                <span id="index-6-(*=pos*)">(*=AV.numberFormat(data.indexes[pos]?data.indexes[pos][6]:'')*)</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="stock-label">(*=Lang.totalValue*): </span>&nbsp;
+                                                                <span id="index-5-(*=pos*)">(*=AV.numberFormat(data.indexes[pos]?data.indexes[pos][5]:'')*)</span>&nbsp;(*=Lang.moneyUnit*)&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            </span>
+                                                            <span class="ss-up" style="padding-right:3px;">(*=AV.StockBoard.specialSymbols[0]*)</span>
+                                                            <span id="index-8-(*=pos*)">(*=AV.numberFormat(data.indexes[pos][8])*)</span>
+                                                            (<span id="index-11-(*=pos*)" class="ss-ceil">(*=AV.numberFormat(data.indexes[pos][11])*)</span>)
+                                                            <span class="ss-basic" style="padding-right:3px;padding-left:10px;">(*=AV.StockBoard.specialSymbols[2]*)</span>
+                                                            <span id="index-9-(*=pos*)">(*=AV.numberFormat(data.indexes[pos][9])*)</span>
+                                                            <span class="ss-down" style="padding-right:3px;padding-left:10px;">(*=AV.StockBoard.specialSymbols[1]*)</span>
+                                                            <span id="index-10-(*=pos*)">(*=AV.numberFormat(data.indexes[pos][10])*)</span>
+                                                            (<span id="index-12-(*=pos*)" class="ss-floor">(*=AV.numberFormat(data.indexes[pos][12])*)</span>)
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </center>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                    <td width="30%" rowspan="2">
+                        <table width="100%" cellpadding=0 cellspacing=0>
+                            <tr>
+                                <td align="center" style="padding-top:5px;" width="100%"><div id="site-title">(*=Lang.HA_HNX30_STOCK_QUOTES_RAW*)</div></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><iframe src="time.html" frameborder="0" hspace="0" vspace="0" id="statusWindow" allowtransparency="true" style="background-color:transparent" height="25" width="280" scrolling="no"></iframe></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ALGOPLATFORM - Bảng giá trực tuyến</title>
+    
+    <link rel="shortcut icon" href="skins/Web/images/favicon.ico" />
+    <link rel="stylesheet" href="skins/Web/slick.css" />
+    <link rel="stylesheet" href="skins/Web/all.min.css" />
+    <link rel="stylesheet" href="skins/Web/nouislider.min.css" />
+    <link rel="stylesheet" href="../../../3rdparty/jquery-ui-1.12.1/jquery-ui.min.css">
+
+    <script type="text/javascript" src="../../../3rdparty/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../../../3rdparty/jquery-migrate-3.1.0.min.js"></script>
+    <script type="text/javascript" src="../../../3rdparty/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../../3rdparty/highstock/highstock.js"></script>
+    <script type="text/javascript" src="../../../3rdparty/highstock/modules/exporting.js"></script>
+    <script type="text/javascript" src="../../../3rdparty/css-vars-ponyfill@2.js"></script>
+    <script type="text/javascript" src="../../../3rdparty/slick.min.js"></script>
+    <script type="text/javascript" src="../../../3rdparty/nouislider.min.js"></script>
+    <script type="text/javascript" src="../../../3rdparty/popper.min.js"></script>
+    <script type="text/javascript" src="../../../3rdparty/tippy.min.js"></script>
+    <script type="text/javascript" src="../../../3rdparty/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="../../../3rdparty/script.js"></script>
+    <script type="text/javascript" src="../../../packages/AV.js?version=3"></script>
+</head>
+<body class="custom-scrollbar">  
+    <script type="text/javascript">
+        AV.run();
+
+        function stickyHeader() {
+            var that = this;
+            var $tableHeader = $('.table--active .table__header ');
+            var fixedComponentsHeight = Math.floor($('.fixed-components').outerHeight());
+            var $financeHeader = $('.code-details .tc__header');
+            $tableHeader.css('top', fixedComponentsHeight + 'px');
+            stickybits($tableHeader, { stickyBitStickyOffset: fixedComponentsHeight });
+            $('.stock-tables__table').css('margin-top', fixedComponentsHeight + 'px');
+            $financeHeader.css('top', fixedComponentsHeight + 'px');
+            console.log(fixedComponentsHeight);
+        }
+
+        //Init
+        // Default values
+        cssVars({
+            // Targets
+            rootElement: document,
+            shadowDOM: false,
+
+            // Sources
+            include: 'link[rel=stylesheet],style',
+            exclude: '',
+            variables: {},
+
+            // Options
+            onlyLegacy: true,
+            preserveStatic: true,
+            preserveVars: false,
+            silent: false,
+            updateDOM: true,
+            updateURLs: true,
+            watch: false,
+        });        
+    </script>    
+</body>
+</html>

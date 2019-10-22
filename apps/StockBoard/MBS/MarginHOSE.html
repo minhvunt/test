@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Bảng Giá Trực Tuyến HOSE VN30 - CÔNG TY CỔ PHẦN CHỨNG KHOÁN THƯƠNG MẠI & CÔNG NGHIỆP VIỆT NAM</title>
+<link rel="shortcut icon" href="skins/Web/images/favicon.ico" />
+</head>
+<body>   
+<script type="text/javascript" src="../../../3rdparty/jQuery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../../../packages/AV.js?version=1.263"></script>
+<script type="text/javascript" src="../../../3rdparty/jQuery/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../3rdparty/jQuery/webtoolkit.scrollabletable.js"></script>
+<script type="text/javascript" src="../../../3rdparty/jQuery/webtoolkit.jscrollable.js"></script>
+
+<script type="text/javascript">
+    if (location.href.indexOf('?local') != -1) {
+        AV.App.configPath = 'marginstockconfig.xml';
+    }
+    else {
+        AV.App.configPath = 'marginstockconfig.xml';
+    }
+    AV.resize(function () {
+        var width = $('#menutop-content').width();
+        $('#top-leftmenu').css('padding-left', Math.round(((screen.availWidth > 1024) ? (width - 120 * 7) : 20) / 2) + 'px');
+        $('#slogan-header').css('margin-left', (width - 500 - 270 - 150) / 2 + 'px');
+    });
+    AV.run();
+    AV.ExecQueue.add(function () {
+        AV.App.ready(AV.resize);
+    }, function () { return $('#top-leftmenu').length });
+</script>
+</body>
+</html>

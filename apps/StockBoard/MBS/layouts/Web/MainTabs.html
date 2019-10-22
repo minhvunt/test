@@ -1,0 +1,54 @@
+<div id="top-leftmenu">
+	<div class="main-tab" id="home-tab">
+		<div>
+			<div>
+			<a target="_blank" href="(*=AV.App.companyInfo.website*)">(*=Lang.Home*)</a>
+			</div>
+		</div>
+	</div>
+	<div class="main-tab(*=((AV.StockBoard.floor=='HO' && AV.StockBoard.currentTab != 'put-through-block')?' main-tab-active':'')*)">
+		<div>
+			<div>
+			<a target="_blank" href="HOSE.html">(*=Lang.HO_Board*)</a>
+			</div>
+		</div>
+	</div>
+	<div class="main-tab(*=((AV.StockBoard.floor=='HA' && AV.StockBoard.currentTab != 'put-through-block')?' main-tab-active':'')*)">
+		<div>
+			<div>
+			<a target="_blank" href="HASE.html">(*=Lang.HA_Board*)</a>
+			</div>
+		</div>
+	</div>
+    <div class="main-tab(*=((AV.StockBoard.floor=='HO' && AV.StockBoard.currentTab != 'put-through-block')?' main-tab-active':'')*)">
+		<div>
+			<div>
+			<a target="_blank" href="HOSE.html">(*=Lang.VN30_Board*)</a>
+			</div>
+		</div>
+	</div>
+	<div class="main-tab(*=((AV.StockBoard.floor=='HA' && AV.StockBoard.currentTab != 'put-through-block')?' main-tab-active':'')*)">
+		<div>
+			<div>
+			<a target="_blank" href="HASE.html">(*=Lang.HNX30_Board*)</a>
+			</div>
+		</div>
+	</div>
+	<div class="main-tab(*=((AV.StockBoard.currentTab == 'put-through-block')?' main-tab-active':'')*)">
+		<div>
+			<div>
+				<a target="_blank" href="(*=((AV.StockBoard.floor == 'HO')?'HOSE':'HASE')*)PT.html">(*=Lang.Put_throught_Trading*)</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="top-rightmenu">
+	<div id="choose-options-menu" class="main-tab-option" onclick="$AV('StockBoard.Menu').showMenu(); return false;">
+		<div>
+			<div>
+			(*=Lang.Options*)
+			</div>
+		</div>
+	</div>
+</div>
+<div style="clear:both;"></div>

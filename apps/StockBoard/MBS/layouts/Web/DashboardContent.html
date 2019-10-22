@@ -1,0 +1,289 @@
+<style type="text/css">
+#dashboard-left{width:32%;padding:5px;margin:5px;float:left;}
+#dashboard-right{width:32%;padding:5px;margin:5px;float:left;}
+#dashboard-wrap{width:100%;float:left;background-color:#000;}
+#dashboard-center{width:30%;float:left;}
+.db-title{float:left;width:100%;color:#FFF;font-weight:bold;font-size:14px;border-top:1px solid #FFF;}
+.db-sub-title{float:left;width:100%;color:#FFF;font-weight:bold;font-size:14px;}
+.db-table-class{color:#47403b;float:left;font-size:11px;}
+.db-table-class td{color:#FFF;}
+.db-table-class span{color:#00FF14;}
+#vn-today, #hnx-today{float:left;width:100%;height:140px;}
+#vn-summary, #hnx-summary{float:left;width:100%;padding-top:15px;}
+.ds-value {color:#FFF !important;}
+</style>
+<div id="dashboard-wrap">
+	<div id="dashboard-left">
+    	<table width="100%" cellpadding="5" cellspacing="2">
+        	<tr>
+            	<td rowspan="2">
+                	<!-- Thong tin VNIndex -->
+                    <div id="vn-general">
+                        <div id="vn-today">
+                        	<div class="db-title">Trong ngày</div>
+                            <table width="100%" cellpadding="1" cellspacing="0" class="db-table-class">
+                            	<tr>
+                                	<td width="60%" valign="top"><span>Cao nhất</span></td>
+                                    <td valign="top"><span id="VNIndex-Highest" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Thấp nhất</span></td>
+                                    <td valign="top"><span id="VNIndex-Lowest" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>VNIndex gần nhất</span></td>
+                                    <td valign="top"><span id="VNIndex-RefIndex" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>KLGD</span></td>
+                                    <td valign="top"><span id="VNIndex-TotalShares" class="ds-value">0</span> tr CP</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>KLGD TB 5 ngày</span></td>
+                                    <td valign="top"><span id="VNIndex-TotalShares5dayAvg" class="ds-value">0</span> tr CP</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>KL cao nhất 52 tuần</span></td>
+                                    <td valign="top"><span id="VNIndex-TotalShares52wHigh" class="ds-value">0</span> tr CP</td>
+                                </tr>
+                            </table>
+                        </div>
+                       	<div id="vn-summary">
+                        	<div class="db-title">Tổng hợp</div>
+                            <table width="100%" cellpadding="1" cellspacing="0" class="db-table-class">
+                            	<tr>
+                                	<td width="60%" valign="top"><span>Cao nhất 52 tuần</span></td>
+                                    <td valign="top"><span id="VNIndex-Highest52w" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Thấp nhất 52 tuần</span></td>
+                                    <td valign="top"><span id="VNIndex-Lowest52w" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>LN 1T (%)</span></td>
+                                    <td valign="top"><span id="VNIndex-Return1Month" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>LN 3T (%)</span></td>
+                                    <td valign="top"><span id="VNIndex-Return3Month" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>LN từ đầu năm (%)</span></td>
+                                    <td valign="top"><span id="VNIndex-YTD" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>P/E</span></td>
+                                    <td valign="top"><span id="VNIndex-PE" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>P/B</span></td>
+                                    <td valign="top"><span id="VNIndex-PB" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Dividend Yield</span></td>
+                                    <td valign="top"><span id="VNIndex-DividendYield" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Vốn hóa TT</span></td>
+                                    <td valign="top"><span id="VNIndex-MarketValues" class="ds-value">0</span> k tỷ Đ</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Tổng KL Mua</span></td>
+                                    <td valign="top"><span id="VNIndex-TotalBid" class="ds-value">0</span> tr CP</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Tổng GT Mua</span></td>
+                                    <td valign="top"><span id="VNIndex-TotalBidValues" class="ds-value">0</span> tỷ Đ</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Tổng KL Bán</span></td>
+                                    <td valign="top"><span id="VNIndex-TotalOffer" class="ds-value">0</span> tr CP</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Tổng GT Bán</span></td>
+                                    <td valign="top"><span id="VNIndex-TotalOfferValues" class="ds-value">0</span> tỷ Đ</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td width="48%" valign="top">                	
+                	<!-- Bieu do VNIndex / Hom truoc -->
+                    <div id="vn-chart" style="height:185px;"></div>
+                    <script language="javascript">
+						Stock.dashBoard.drawIndexChart('VNIndex','vn-chart');
+					</script>
+                </td>
+            </tr>
+            <tr>
+            	<td valign="top">	                
+                	<!-- Bieu do RSI - VNIndex -->
+                    <div id="VNIndex-rsi-chart" style="height:190px;"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id="dashboard-center">
+		<table width="100%" cellpadding="5" cellspacing="2">
+        	<tr>
+            	<td width="50%">
+                	<div id="chart-ad" style="height:180px;"></div>
+                	<!-- Bieu do tang/ giam -->
+                </td>
+                <td width="50%">
+	                <div id="chart-bidoffer" style="height:180px;"></div>
+                	<!-- Bieu do Cung / Cau -->
+                </td>
+            <tr>
+            <tr>
+            	<td width="50%">
+                	<!-- Bieu do NN Mua -->
+                    <div id="chart-fg" style="height:190px;"></div>
+                </td>
+                <td width="50%">
+                	<!-- Bieu do Fear / Greed -->
+                    <div id="chart-feargreed" style="height:190px;"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id="dashboard-right">
+    	<table width="100%" cellpadding="5" cellspacing="2">
+        	<tr>
+            	<td rowspan="2">
+                	<!-- Thong tin HNXIndex -->
+                    <div id="hnx-today">
+                        	<div class="db-title">Trong ngày</div>
+                            <table width="100%" cellpadding="1" cellspacing="0" class="db-table-class">
+                            	<tr>
+                                	<td width="60%" valign="top"><span>Cao nhất</span></td>
+                                    <td valign="top"><span id="HNXIndex-Highest" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Thấp nhất</span></td>
+                                    <td valign="top"><span id="HNXIndex-Lowest" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>HNXIndex gần nhất</span></td>
+                                    <td valign="top"><span id="HNXIndex-RefIndex" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>KLGD</span></td>
+                                    <td valign="top"><span id="HNXIndex-TotalShares" class="ds-value">0</span> tr CP</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>KLGD TB 5 ngày</span></td>
+                                    <td valign="top"><span id="HNXIndex-TotalShares5dayAvg" class="ds-value">0</span> tr CP</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>KL cao nhất 52 tuần</span></td>
+                                    <td valign="top"><span id="HNXIndex-TotalShares52wHigh" class="ds-value">0</span> tr CP</td>
+                                </tr>
+                            </table>
+                        </div>
+                       	<div id="vn-summary">
+                        	<div class="db-title">Tổng hợp</div>
+                            <table width="100%" cellpadding="1" cellspacing="0" class="db-table-class">
+                            	<tr>
+                                	<td width="60%" valign="top"><span>Cao nhất 52 tuần</span></td>
+                                    <td valign="top"><span id="HNXIndex-Highest52w" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Thấp nhất 52 tuần</span></td>
+                                    <td valign="top"><span id="HNXIndex-Lowest52w" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>LN 1T (%)</span></td>
+                                    <td valign="top"><span id="HNXIndex-Return1Month" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>LN 3T (%)</span></td>
+                                    <td valign="top"><span id="HNXIndex-Return3Month" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>LN từ đầu năm (%)</span></td>
+                                    <td valign="top"><span id="HNXIndex-YTD" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>P/E</span></td>
+                                    <td valign="top"><span id="HNXIndex-PE" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>P/B</span></td>
+                                    <td valign="top"><span id="HNXIndex-PB" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Dividend Yield</span></td>
+                                    <td valign="top"><span id="HNXIndex-DividendYield" class="ds-value">0</span></td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Vốn hóa TT</span></td>
+                                    <td valign="top"><span id="HNXIndex-MarketValues" class="ds-value">0</span> k tỷ Đ</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Tổng KL Mua</span></td>
+                                    <td valign="top"><span id="HNXIndex-TotalBid" class="ds-value">0</span> tr CP</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Tổng GT Mua</span></td>
+                                    <td valign="top"><span id="HNXIndex-TotalBidValues" class="ds-value">0</span> tỷ Đ</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Tổng KL Bán</span></td>
+                                    <td valign="top"><span id="HNXIndex-TotalOffer" class="ds-value">0</span> tr CP</td>
+                                </tr>
+                                <tr>
+                                	<td width="60%" valign="top"><span>Tổng GT Bán</span></td>
+                                    <td valign="top"><span id="HNXIndex-TotalOfferValues" class="ds-value">0</span> tỷ Đ</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td width="48%" valign="top">
+                	<!-- Bieu do HNXIndex / Hom truoc -->
+                    <div id="hnx-chart" style="height:185px;"></div>
+                    <script language="javascript">
+						Stock.dashBoard.drawIndexChart('HNXIndex','hnx-chart');
+					</script>
+                </td>
+            </tr>
+            <tr>
+            	<td valign="top">
+                	<!-- Bieu do RSI - HNX -->
+                    <div id="HNXIndex-rsi-chart" style="height:190px;"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <script type="text/javascript">
+		setTimeout(function () {
+			Stock.dashBoard.drawChart('HOSE', 'ho');
+		}, 2000);
+		
+		setTimeout(function () {
+			Stock.dashBoard.getDashboardData('VNIndex');
+			Stock.dashBoard.getDashboardData('HNXIndex');
+		}, 2500);
+		
+		Stock.index.dashBoardIndex = true;
+		setInterval(function(){
+			Stock.index.updateFullIndex();
+		}, 60000);
+		
+		setInterval(function() {
+			Stock.dashBoard.drawIndexChart('VNIndex','vn-chart');
+			Stock.dashBoard.drawIndexChart('HNXIndex','hnx-chart');
+		}, 60000);
+		
+		setInterval(function() {
+			Stock.dashBoard.drawChart('HOSE', 'ho');
+			Stock.dashBoard.getDashboardData('VNIndex');
+			Stock.dashBoard.getDashboardData('HNXIndex');
+		}, 61000);
+		
+	</script>   
+</div>

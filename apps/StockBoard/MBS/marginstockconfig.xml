@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<companyInfo>
+    <name>
+      <vi>CÔNG TY CỔ PHẦN CHỨNG KHOÁN THƯƠNG MẠI VÀ CÔNG NGHIỆP VIỆT NAM</vi>
+      <en>VIETNAM INDUSTRIAL AND COMMERCIAL SECURITIES CORPORATION (VICS)</en>
+    </name>
+    <compayName>
+      <vi>CÔNG TY CỔ PHẦN CHỨNG KHOÁN THƯƠNG MẠI VÀ CÔNG NGHIỆP VIỆT NAM</vi>
+      <en>VIETNAM INDUSTRIAL AND COMMERCIAL SECURITIES CORPORATION (VICS)</en>
+    </compayName>
+    <email>info@vics.com.vn</email>
+    <fax>(84-8) 39110789</fax>
+    <telephone>(84-8) 39110788</telephone>
+    <address1>
+      <vi>Villa số 3, 02 Bis Nguyễn Thị Minh Khai, Quận 1, TP Hồ Chí Minh</vi>
+      <en>3th Villa, 02 Bis Nguyen Thi Minh Khai Str, District 1, Ho Chi Minh City</en>
+    </address1>
+	<address2>
+      <vi>Tầng 4, Hà Thành Plaza, 102 Thái Thịnh, Đống Đa, Hà Nội</vi>
+      <en>4th Floor, Ha Thanh Plaza, 102 Thai Thinh Str., Dong Da Dist., Ha Noi City</en>
+    </address2>
+    <website>http://www.vics.vn</website>
+  </companyInfo>
+  <boardType>MULTICOLOR</boardType>
+  <fixedSelections>true</fixedSelections>
+  <indexHightLightColor>#444</indexHightLightColor>
+  <hightlightColor>#555</hightlightColor>
+  <euroStyleVolumn>0</euroStyleVolumn>
+  <volumnUnit>1</volumnUnit>
+  <rubsePriceStyle>1</rubsePriceStyle>
+  <colors>
+  	<ss-no>#FFFFFF</ss-no>
+    <ss-ceil>#DD00DD</ss-ceil>
+	<ss-floor>#66CCFF</ss-floor>
+	<ss-basic>#EEFB00</ss-basic>
+	<ss-up>#32CD32</ss-up>
+	<ss-down>#F70033</ss-down>
+	<ss-highlight>#000</ss-highlight>
+	<other-ss-highlight>#555</other-ss-highlight>
+	<other-ss-ceil>#DD00DD</other-ss-ceil>
+	<other-ss-floor>#66CCFF</other-ss-floor>
+	<other-ss-basic>#EEFB00</other-ss-basic>
+	<other-ss-up>#32CD32</other-ss-up>
+	<other-ss-down>#F70033</other-ss-down>
+  </colors>
+  <layout>Web</layout>
+  <skin>Web</skin>
+  <selectedSymbolFloat>1</selectedSymbolFloat>
+  <absPrice>1</absPrice>
+  <ATOcolor>#FFF</ATOcolor>
+  <highlightwithStatus>,0,7,8,9,10,</highlightwithStatus>
+  <volColor></volColor>
+  <showPTTinBoard>false</showPTTinBoard>
+  <pttScrollHeight>1000</pttScrollHeight>
+  <enableChart>1</enableChart>
+  <useCategory>1</useCategory>
+  <viewIndexes>0</viewIndexes>
+  <Unit>
+    <HO>1</HO>
+    <HA>1</HA>
+    <UPCOM>1</UPCOM>
+  </Unit>
+	<viewMarginStock>1</viewMarginStock>
+</root>

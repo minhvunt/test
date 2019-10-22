@@ -1,0 +1,863 @@
+<link rel="stylesheet" type="text/css" href="skins/(*=AV.App.layout*)/style.css"/>
+<link rel="stylesheet" type="text/css" href="skins/(*=AV.App.layout*)/board.css"/>
+
+<div class="fixed-components">
+    <header class="site-header">
+
+        <div class="header__left">
+            <div class="site-icon">
+                <img src="skins/(*=AV.App.layout*)/images/logo.png" alt="logo">
+            </div>
+            <div class="header__search">
+                <form role="search" method="get" class="search-form" action="">
+                    <label>
+                        <input class="search-field input-txt--dark" id="view-code" placeholder="Xem chi tiết mã..." name="s" type="search">
+                    </label>
+                    <button type="submit" class="search-submit" id="view-code-submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="header__time">
+                <span class="hour">10:05:00</span>
+            </div>
+        </div>
+        <div class="header__center">
+            <div class="news">
+                <a href="#">Tăng khả năng tiếp cận vốn cho Doanh nghiệp nhỏ và vừa</a>
+                <a href="#">"Vấn đề đau đầu nhất" khi sửa Luật đầu tư</a>
+            </div>
+        </div>
+        <div class="header__right">
+            <ul class="header__navigation">
+                <li class="dropdown">
+                    <a class="dropdown-toggle is-active" href="#">Cơ sở<i class="fas fa-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./">Cơ sở</a></li>
+                        <li><a href="./phai-sinh.php">Phái sinh</a></li>
+                        <li><a href="./chung-quyen.php">Chứng quyền</a></li>
+                        <li><a href="#">Trái phiếu</a></li>
+                        <li><a href="#" target="_blank">Bảng giá cũ</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="header__language dropdown" style="padding-top:12px;">
+                <a class="dropdown-toggle" href="#"><img src="skins/(*=AV.App.layout*)/images/vn.svg" alt="vn"></a>
+                <ul class="dropdown-menu">
+                    <li><a href="./"><img src="skins/(*=AV.App.layout*)/images/vn.svg" alt="vn"> Tiếng Việt</a></li>
+                    <li><a href="./en.php"><img src="skins/(*=AV.App.layout*)/images/gb.svg" alt="en"> English</a></li>
+                    <li><a href="./en.php"><img src="skins/(*=AV.App.layout*)/images/cn.svg" alt="cn"> 中文</a></li>
+                    <li><a href="./en.php"><img src="skins/(*=AV.App.layout*)/images/kr.svg" alt="cn"> 한국어</a></li>
+                    <li><a href="./en.php"><img src="skins/(*=AV.App.layout*)/images/jp.svg" alt="jp"> 日本語</a></li>
+                </ul>
+            </div>
+            <div class="header__actions">
+                <a href="login.php" class="btn btn--login">Đăng nhập</a>
+                <a href="#" class="btn btn--primary init-dat-lenh-popup">Place Order</a>
+            </div>
+        </div>
+    </header>
+    (*=AV.App.region('index');*)
+    <div class="stock-tables__header">
+        <div class="stock-header__left">
+            <form class="stock-header__search">
+                <button id="submit-code"><i class="fas fa-plus"></i></button><input class="input-txt--dark" type="text" placeholder="Thêm mã CK" id="add-code">
+            </form>
+            <ul class="stock-header__navigation">
+                <li class="has-submenu dropdown">
+                    <a class="nav-tab dropdown-toggle" href="#danh-muc" title="Danh mục">Danh mục</a>
+                    <div class="dropdown-menu--danh-muc dropdown-menu">
+                        <ul class="dropdown-menu__list" id="cat_portfolio">
+                            <li class="list__item active">
+                            <span class="list__name">
+                                <i class="fas fa-check-circle"></i><span>Danh mục 1</span>
+                            </span>
+                                <input class="is-hidden" type="text">
+                                <span class="list__buttons">
+                                <a class="txt-white btn--edit" href="#" title="Sửa"><i class="fas fa-edit"></i></a>
+                                <a class="txt-white btn--delete" href="#" title="Xóa"><i class="fas fa-times"></i></a>
+                            </span>
+                            </li>
+                            <li class="list__item">
+                            <span class="list__name">
+                                <i class="fas fa-check-circle"></i><span>Danh mục 2</span>
+                            </span>
+                                <input class="is-hidden" type="text">
+                                <span class="list__buttons">
+                                <a class="txt-white btn--edit" href="#" title="Sửa"><i class="fas fa-edit"></i></a>
+                                <a class="txt-white btn--delete" href="#" title="Xóa"><i class="fas fa-times"></i></a>
+                            </span>
+                            </li>
+                        </ul>
+                        <form class="danh-muc__tao-moi">
+                            <input class="input-txt--dark" type="text" placeholder="Tạo danh mục mới">
+                            <button type="submit"><i class="fas fa-plus"></i></button>
+                        </form>
+                    </div>
+                </li>
+                <li class="has-submenu dropdown">
+                    <a class="nav-tab dropdown-toggle" href="#niem-yet" title="Danh mục">Niêm yết</a>
+                    <ul class="dropdown-menu dropdown-menu--niemyet" id="cat_ff">
+                        <li><a href="#" title="">HOSE</a></li>
+                        <li><a href="#" title="">HNX</a></li>
+                        <li><a href="#" title="">UPCOM</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu dropdown">
+                    <a class="nav-tab dropdown-toggle" href="#thoa-thuan" title="Thỏa thuận">Thỏa thuận</a>
+                    <ul class="dropdown-menu dropdown-menu--nganh">
+                        <li><a href="#thoa-thuan" class="has-table" title="">GDTT HOSE</a></li>
+                        <li><a href="#thoa-thuan" class="has-table" title="">GDTT HNX</a></li>
+                        <li><a href="#thoa-thuan" class="has-table" title="">GDTT UPCOM</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu dropdown">
+                    <a class="nav-tab dropdown-toggle" href="#nganh" title="Ngành">Ngành</a>
+                    <ul class="dropdown-menu dropdown-menu--nganh" id="cat_industry">
+                        <li><a href="#" title="">Dầu khí</a></li>
+                        <li><a href="#" title="">Hóa chất</a></li>
+                        <li><a href="#" title="">Tài nguyên cơ bản</a></li>
+                        <li><a href="#" title="">Xây dựng và vật liệu</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-tab has-table" href="#khuyen-nghi" title="Khuyến nghị">CP khuyến nghị</a></li>
+                <li class="has-submenu dropdown">
+                    <a class="nav-tab dropdown-toggle" href="#loc" title="Lọc">Lọc</a>
+                    <div class="dropdown-menu--loc dropdown-menu">
+                        <ul class="dropdown-menu__list" id="cat_filter">
+                            <li class="list__item active">
+                                <span class="list__name txt-white"><span>CP tăng trưởng</span></span>
+                            </li>
+                            <li class="list__item">
+                                <span class="list__name txt-white"><span>CP lợi nhuận</span></span>
+                            </li>
+                            <li class="list__item">
+                                <span class="list__name txt-white"><span>CP giá trị</span></span>
+                                <input class="is-hidden" type="text">
+                                <span class="list__buttons">
+                                <a class="txt-white btn--edit" href="#" title="Sửa"><i class="fas fa-edit"></i></a>
+                                <a class="txt-white btn--delete" href="#" title="Xóa"><i class="fas fa-times"></i></a>
+                            </span>
+                            </li>
+                        </ul>
+                        <div class="loc__tao-moi">
+                            <a href="#" title="Tạo bộ lọc" class="txt-white init-filter-modal">Tạo bộ lọc</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="stock-header__right">
+            <div class="stock-header__view-mode">
+                <a href="#bang-gia" class="active nav-tab has-table" title="bang-gia"><i class="fas fa-chart-line"></i>Bảng giá</a></span>
+                <a href="#co-ban" class="nav-tab has-table" title="co-ban"><i class="fas fa-chart-line"></i>Cơ bản</a>
+            </div>
+
+            <div class="stock-header__buttons">
+                <button type="button" class="init-chi-so-modal">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button type="button" class="stock-header__chart-toggle">
+                    <i class="fas fa-angle-up"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="stock-header__filter-result visble-on-filter is-hidden d-flex space-between flex-wrap">
+            <div class="filter-result__number">
+                Tên bộ lọc: <span class="filter__name">
+                (<span><strong class="txt-green">100</strong></span> mã thỏa mãn)
+            </div>
+            <div class="filter-result__edit visble-on-filter is-hidden txt-white">
+                <a href="#">Điều khoản sử dụng</a>
+                <a href="#" class="filter__create init-filter-modal">Tạo mới bộ lọc</a>
+                <a href="#" class="filter__edit init-filter-modal" data-modal-edit="enable">Chỉnh sửa bộ lọc</a>
+                <a href="#">Backtest</a>
+                <button type="button" class="visble-on-filter is-hidden">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+        </div>
+
+        <div style="text-align:left; width:48%;float:left;display:none;">
+            <table width="100%" id="tblUserOption" cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+                <tbody>
+                <tr>
+                    <td style="font-size: 13px; padding-right: 5px; font-weight: bold;" align="left" width="1%">(*=Lang.Group*)</td>
+                    <td align="right" width="10%" valign="bottom" id="TabHeader_HOSETab">
+                        <ul class="select-tab">
+                            <li>
+                                <a onclick="$AV('StockBoard.Menu').showMenu(); if($.browser.msie)event.returnValue=false;else return false;" id="choose-options-menu">
+                                    <div class="tabUnSelected" style="width:80px;">(*=Lang.Options*)</div>
+                                </a>
+                            </li>
+                            (*=AV.App.region('menu');*)
+
+                            <li style="padding-top:3px;"><a class="change-language" onclick='Stock.setLanguage("vi")'><img width="25" height="15" border="0" src="(*=AV.App.image('flag_vn.gif');*)" /></a></li>
+                            <li style="padding-top:3px;"><a class="change-language" onclick='Stock.setLanguage("en")'><img width="25" height="15" border="0" src="(*=AV.App.image('flag_en.gif');*)" /></a></li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal Setting -->
+    <div class="modal modal--chi-so" id="chi-so-modal">
+        <div class="modal__background"></div>
+        <div class="modal__body">
+            <h3 class="txt-center">Lựa chọn chỉ số</h3>
+            <div class="chi-so-items">
+                <div class="chi-so-item">
+                    <div class="ten-san">HOSE</div>
+                    <div class="ten-chi-so">
+                        <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="HOSE" value="VNXALL"><span>VNXALL</span></label>
+                        <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="HOSE" value="VNI"><span>VNI</span></label>
+                        <label class="custom-checkbox custom-checkbox--3"><input data-default="true" checked type="checkbox" name="HOSE" value="VN30"><span>VN30</span></label>
+                        <label class="custom-checkbox custom-checkbox--3"><input data-default="true" checked type="checkbox" name="HOSE" value="VNI50"><span>VNI50</span></label>
+                        <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="HOSE" value="VNI100"><span>VNI100</span></label>
+                        <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="HOSE" value="VNMID"><span>VNMID</span></label>
+                        <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="HOSE" value="VNSML"><span>VNSML</span></label>
+                    </div>
+                </div>
+                <div class="chi-so-item">
+                    <div class="ten-san">Phái sinh</div>
+                    <div class="ten-chi-so">
+                        <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="phai-sinh" value="VN30F1M"><span>VN30F1M</span></label>
+                        <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="phai-sinh" value="VN30F2M"><span>VN30F2M</span></label>
+                        <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="phai-sinh" value="VN30F1Q"><span>VN30F1Q</span></label>
+                        <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="phai-sinh" value="VN30F2Q"><span>VN30F2Q</span></label>
+                    </div>
+                </div>
+                <div class="chi-so-item">
+                    <div class="ten-san">HNX</div>
+                    <div class="ten-chi-so">
+                        <label class="custom-checkbox custom-checkbox--3"><input data-default="true" checked type="checkbox" name="HNX" value="HNX"><span>HNX</span></label>
+                        <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="HNX" value="HNX30"><span>HNX30</span></label>
+                    </div>
+                </div>
+                <div class="chi-so-item">
+                    <div class="ten-san">UPCOM</div>
+                    <div class="ten-chi-so">
+                        <label class="custom-checkbox custom-checkbox--3"><input data-default="true" checked type="checkbox" name="UPCOM" value="UPCOM"><span>UPCOM</span></label>
+                    </div>
+                </div>
+                <div class="chi-so-item">
+                    <div class="ten-san">GDTT</div>
+                    <div class="ten-chi-so">
+                        <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="GDTT" value="GDTT"><span></span></label>
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="set-chi-so-default" class="btn btn--primary">Thiết lập mặc định</button>
+            <button type="button" class="btn btn--no-bg modal__close--btn">Lưu</button>
+            <button type="button" class="btn btn--red modal__close--btn">Đóng</button>
+            <button type="button" class="modal__close"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- Modal Filter -->
+    <div class="modal modal--filter" id="bo-loc-modal">
+        <div class="modal__background"></div>
+        <div class="modal__body">
+            <div class="filter__header d-flex flex-wrap">
+                <div class="filter__name filter--left">
+                    <input type="text" name="" value="" placeholder="Nhập tên bộ lọc">
+                </div>
+                <div class="filter__save filter--right">
+                    <div class="filter__total-stock"><span class="number" id="filter_total_matched">181</span> mã thỏa mãn</div>
+                    <div class="filter__buttons">
+                        <button class="btn btn--primary buttons__save" type="button">Lưu và xem kết quả</button>
+                        <button class="btn btn--no-bg buttons__reset" type="button">Làm lại</button>
+                    </div>
+                </div>
+            </div>
+            <div class="filter__body">
+                <div class="filter__inputs d-flex flex-wrap">
+                    <div class="input__search filter--left">
+                        <input type="text" placeholder="Tìm kiếm điều kiện lọc">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="input__selects filter--right d-flex flex-wrap">
+                        <select name="filter_nganh" id="filter_nganh">
+                            <option value="">Lọc theo sàn</option>
+                            <option value="">HOSE</option>
+                            <option value="">HNX</option>
+                            <option value="">UPCOM</option>
+                        </select>
+                        <select name="filter_san" id="filter_san">
+                            <option value="">Lọc theo ngành</option>
+                            <option value="">Ngành kiến trúc xây dựng</option>
+                            <option value="">Ngành sản xuất chế biến</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter__conditions d-flex flex-wrap">
+                    <div class="filter--left d-flex flex-wrap">
+                        <div class="condition__tab-items">
+                            <a href="#tab-content-1" class="tab__item active">Phân đoạn thị trường <i class="fas fa-angle-right"></i></a>
+                            <a href="#tab-content-2" class="tab__item">Giá và khối lượng <i class="fas fa-angle-right"></i></a>
+                            <a href="#tab-content-3" class="tab__item">Khối ngoại <i class="fas fa-angle-right"></i></a>
+                            <a href="#tab-content-4" class="tab__item">Chỉ số cơ bản <i class="fas fa-angle-right"></i></a>
+                            <a href="#tab-content-5" class="tab__item">Nhóm tiêu chí đặc thù <i class="fas fa-angle-right"></i></a>
+                            <a href="#tab-content-6" class="tab__item">Tín hiệu kỹ thuật <i class="fas fa-angle-right"></i></a>
+                        </div>
+                        <!-- Tab Content -->
+                        <div id="tab-content-1" class="condition__tab-content custom-scrollbar active">
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>ROE 4 quý gần nhất (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>ROE 4 quý so với TB ngành (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>ROA 4 quý gần nhất (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>ROA 4 quý so với TB ngành (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>PE 4 quý gần nhất (lần)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>PE 4 quý so với TB ngành (lần)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>EPS quý gần nhất (VND)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>EPS 4 quý gần nhất (VND)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>EPS 4 quý gần nhất (VND)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>EPS 4 quý gần nhất (VND)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>EPS 4 quý gần nhất (VND)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>EPS 4 quý gần nhất (VND)</span></label>
+                        </div>
+
+                        <div id="tab-content-2" class="condition__tab-content custom-scrollbar">
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Thay đổi Giá so với Phiên gần nhất (1000 VND)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Thay đổi Giá so với Phiên gần nhất (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Tổng Khối lượng giao dịch (10 CP)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Tổng Giá trị giao dịch (Triệu VND)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="vol_per_10d" type="checkbox" name="" value=""><span>Thay đổi KLGD so với KLTB 10 phiên (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="vol_per_20d" type="checkbox" name="" value=""><span>Thay đổi KLGD so với KLTB 20 phiên (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="val_per_20d" type="checkbox" name="" value=""><span>GTGD TB 20 phiên gần nhất (Tỷ VND)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="max_hprice_52w" type="checkbox" name="" value=""><span>Thay đổi Giá so với Đỉnh 52 tuần (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="min_lprice_52w" type="checkbox" name="" value=""><span>Thay đổi Giá so với Đáy 52 tuần (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Tỷ suất Sinh lời 5 năm hoặc Từ ngày đầu tiên niêm yết (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Thay đổi Giá so với X phiên (%)</span></label>
+                        </div>
+
+                        <div id="tab-content-3" class="condition__tab-content custom-scrollbar">
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="f_buy_value" type="checkbox" name="" value=""><span>Giá trị mua khối ngoại (Triệu VND)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="f_sell_value" type="checkbox" name="" value=""><span>Giá trị bán khối ngoại (Triệu VND)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="f_net_buy_value" type="checkbox" name="" value=""><span>Giá trị mua bán ròng của Khối ngoại</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="f_buy_val_per_5d" type="checkbox" name="" value=""><span>Giá trị mua khối ngoại so với TB 5 phiên trước (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="f_buy_val_per_10d" type="checkbox" name="" value=""><span>Giá trị mua khối ngoại so với TB 10 phiên trước (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="f_buy_val_per_20d" type="checkbox" name="" value=""><span>Giá trị mua khối ngoại so với TB 20 phiên trước (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="f_sell_val_per_5d" type="checkbox" name="" value=""><span>Giá trị bán khối ngoại so với TB 5 phiên trước (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="f_sell_val_per_10d" type="checkbox" name="" value=""><span>Giá trị bán khối ngoại so với TB 10 phiên trước (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="f_sell_val_per_20d" type="checkbox" name="" value=""><span>Giá trị mua bán ròng khối ngoại so với TB 20 phiên (%)</span></label>
+                        </div>
+
+                        <div id="tab-content-4" class="condition__tab-content custom-scrollbar">
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="beta type="checkbox" name="" value=""><span>BETA Năm gần nhất (lần)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Tỷ lệ nợ xấu (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Tỷ lệ Nợ xấu bao gồm VAMC (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Tỷ lệ Dự phòng nợ xấu/ Tổng nợ xấu (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Tỷ lệ Dự phòng nợ xấu/ Tổng nợ xấu bao gồm VAMC (%)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>NIM (%)</span></label>
+                        </div>
+
+
+                        <div id="tab-content-5" class="condition__tab-content custom-scrollbar">
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Đường SMA (10)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Đường SMA (20)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Đường SMA (50)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Đường SMA (200)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Mô hình Hộp Darvas</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Đường MACD</span></label>
+                        </div>
+
+                        <div id="tab-content-6" class="condition__tab-content custom-scrollbar">
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Vốn hóa (Tỷ VND)</span></label>
+                            <label class="tab-content__item custom-checkbox custom-checkbox--2"><input id="<?php echo uniqid(); ?>" type="checkbox" name="" value=""><span>Thời gian niêm yết (Năm)</span></label>
+                        </div>
+                    </div>
+                    <div class="filter__edit-condition custom-scrollbar filter--right">
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="modal__close"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+    <!-- Dat lenh Popup -->
+    <div class="dat-lenh-popup">
+        <div class="dat-lenh-popup__actions">
+            <span class="dat-lenh-notice"></span>
+            <div class="dat-lenh-popup__form d-flex flex-wrap">
+                <div class="dat-lenh-popup__lenh-thuong">
+                    <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="" value="" checked=""><span>Lệnh thường</span></label>
+                </div>
+                <div class="form__body">
+                    <div class="form__body__inputs">
+                        <div class="form__select-mua-ban">
+                            <ul class="d-flex">
+                                <li class="has-submenu dat-lenh__mua dropdown">
+                                    <a class="dropdown-toggle" title="Danh mục"><span>Mua</span><i class="fas fa-angle-down"></i></a>
+                                    <ul class="dropdown-menu--mua dropdown-menu">
+                                        <li><a href="#">Mua</a></li>
+                                        <li><a href="#">Mua OutR</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-submenu dat-lenh__ban dropdown">
+                                    <a class="dropdown-toggle" title="Danh mục"><span>Bán</span><i class="fas fa-angle-down"></i></a>
+                                    <ul class="dropdown-menu--ban dropdown-menu">
+                                        <li><a href="#">Bán</a></li>
+                                        <li><a href="#">Bán OutR</a></li>
+                                        <li><a href="#">Bán TT68</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="form__select-tai-khoan">
+                            <ul>
+                                <li class="has-submenu dropdown">
+                                    <a class="nav-tab dropdown-toggle"><span>Tài khoản</span><i class="fas fa-angle-down"></i></a>
+                                    <div class="dropdown-menu--tai-khoan dropdown-menu">
+                                        <ul class="dropdown-menu__list">
+                                            <li><a href="#" data-tk="">Tài khoản</a></li>
+                                            <li><a href="#" data-tk="4608121" class="show-tk">4608121</a></li>
+                                            <li><a href="#" data-tk="4608128" class="show-tk">4608128</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dat-lenh__form__input form__input--code">
+                            <input type="text" name="" value="" placeholder="Mã">
+                            <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="" value=""><span></span></label>
+                        </div>
+                        <div class="dat-lenh__form__input form__input--gia">
+                            <input type="text" name="" value="" placeholder="Giá">
+                            <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="" value=""><span></span></label>
+                            <span class="txt-light-1 quantity">x1000</span>
+                            <!-- <div class="dat-lenh__info--code info--gia is-hidden">
+                                <span class="info--so-du">Số dư CK: <strong>28.500</strong></span><br>
+                                <span class="info--fal">FAL đã dùng: <strong>28.500</strong></span>
+                            </div>
+                            <div class="dat-lenh__info--code info--gia--ban is-hidden">
+                                <span class="info--so-du">Số dư CK: <strong>28.500</strong></span><br>
+                            </div> -->
+                        </div>
+                        <div class="dat-lenh__form__input form__input--KL">
+                            <input type="text" name="" value="" placeholder="KL">
+                            <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="" value=""><span></span></label>
+                        </div>
+                        <div class="dat-lenh__form__input form__input--OTP">
+                            <input type="text" name="" value="" class="is-saved" placeholder="OTP">
+                            <label class="custom-checkbox custom-checkbox--3"><input type="checkbox" name="" value="" checked=""><span></span></label>
+                            <div class="dat-lenh__info--otp">
+                                <button type="button" class="info--button-otp btn btn--red-2">Nhận mã OTP</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__body__infos">
+                        <div class="form__body__info">
+                            <div class="info--tk is-hidden">
+                                <span>Sức mua tài khoản</span>
+                                <span>: <strong>23.028.500.000</strong></span>
+                            </div>
+                            <div class="info--ki-quy is-hidden">
+                                <span>Tỷ lệ ký quỹ</span>
+                                <span>: <strong>50%</strong></span>
+                            </div>
+                        </div>
+                        <div class="form__body__info visible-on-price is-hidden">
+                            <div class="info--kl-mua">
+                                <span>KL có thể mua</span>
+                                <span>: <strong>28.500.000</strong></span>
+                            </div>
+                            <div class="info--kl-mua-fal">
+                                <span>KL mua gồm FAL</span>
+                                <span>: <strong>28.500</strong></span>
+                            </div>
+                        </div>
+                        <div class="form__body__info visible-on-price is-hidden">
+                            <div class="info--so-du">
+                                <span>Số dư CK</span>
+                                <span>: <strong>28.000.500</strong></span>
+                            </div>
+                            <div class="info--dung-fal">
+                                <span>FAL đã dùng</span>
+                                <span>: <strong>28.500</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__submit">
+                    <button type="button" class="dat-lenh-popup__btn--submit btn btn--green">Mua</button>
+                    <div class="dat-lenh__gio-lenh">
+                        <a href="#" class="gio-lenh__init"><i class="fas fa-cart-plus"></i>Giỏ lệnh</a>
+                        <a href="#" class="gio-lenh__huy"><i class="fas fa-times-circle"></i>Hủy</a>
+                    </div>
+                    <!-- <div class="dat-lenh-popup__btn--others">
+                        <a href="./danh-sach-lenh.php" type="button" class="btn btn--dark-3">Danh sách lệnh</a>
+                        <a href="./quan-ly-tai-khoan.php" type="button" class="btn btn--dark-3">Quản lý tài khoản</a>
+                    </div> -->
+                </div>
+                <span class="form__close"><i class="fas fa-times-circle"></i></span>
+            </div>
+        </div>
+        <!-- <div class="dat-lenh-popup__code">
+            <h4 class="dat-lenh-popup__code__name"></h4>
+            <div class="dat-lenh-popup__code__company"></div>
+            <div>Tỷ lệ ký quỹ: 12%</div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="d-flex space-between">
+                                Trần<span class="td-value--tran txt-pink"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex space-between">
+                                Sàn<span class="td-value--san txt-white"></span>
+                            </div>
+                        </td>
+                        <td class="dat-lenh-popup__code__col-sm">
+                            <div class="d-flex space-between">
+                                TC<span class="td-value--tc txt-yellow"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex space-between">
+                                Mua 1<span class="td-value--mua_1 txt-green"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex space-between">
+                                Bán 1<span class="td-value--ban_1 txt-green"></span>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex space-between">
+                                KL Mua 1<span class="td-value--mua_1 txt-green"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex space-between">
+                                KL Bán 1<span class="td-value--ban_1 txt-green"></span>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex space-between">
+                                Tổng KL mua<span class="td-value--tong_kl_mua txt-white"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex space-between">
+                                Tổng KL bán<span class="td-value--tong_kl_ban txt-white"></span>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> -->
+        <div class="dat-lenh-popup__tk-info">
+            <div class="d-flex space-between">
+                <span>Tiền</span>
+                <span>120.500.000</span>
+            </div>
+            <div class="d-flex space-between">
+                <span>Giá trị CK</span>
+                <span>8.900.200</span>
+            </div>
+            <div class="d-flex space-between">
+                <span>Nợ</span>
+                <span>1.500.00</span>
+            </div>
+            <div class="d-flex space-between">
+                <span>Tài sản ròng</span>
+                <span>6.000.000</span>
+            </div>
+            <div class="d-flex space-between">
+                <span>Tỷ lệ K</span>
+                <span>10%</span>
+            </div>
+            <div class="d-flex space-between">
+                <span>Hạn mức Margin</span>
+                <span>25%</span>
+            </div>
+        </div>
+    </div>
+    <!-- So lenh -->
+    <div id="so-lenh-popup" class="footer-nav-popup so-lenh-popup is-hidden lenh-trong-ngay">
+        <div class="footer-nav-popup__bar d-flex space-between align-center">
+		<span class="footer-nav-popup__title">
+			<i class="fas fa-book"></i>Sổ lệnh
+		</span>
+            <span class="footer-nav-popup__close">
+			<i class="fas fa-angle-down"></i>
+		</span>
+        </div>
+        <div class="footer-nav-popup__header d-flex space-between">
+            <div>
+                <button class="btn btn--red so-lenh__huy" type="button">Hủy</button>
+                <button class="btn btn--primary so-lenh__kich-hoat" type="button">Kích hoạt</button>
+            </div>
+
+            <div class="so-lenh__tk so-lenh__select has-submenu dropdown">
+                <a class="dropdown-toggle" title="Danh mục"><span>Tài khoản</span><i class="fas fa-angle-down"></i></a>
+                <ul class="dropdown-menu--mua dropdown-menu">
+                    <li><a href="#">4608121</a></li>
+                    <li><a href="#">4608128</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-nav-popup__body custom-scrollbar">
+            <div class="so-lenh__khop footer-nav-popup__select has-submenu dropdown">
+                <a class="dropdown-toggle" title="Danh mục"><span>Khớp một phần</span><i class="fas fa-angle-down"></i></a>
+                <ul class="dropdown-menu--mua dropdown-menu">
+                    <li><a href="#">Chờ khớp</a></li>
+                    <li><a href="#">Khớp</a></li>
+                    <li><a href="#">Khớp một phần</a></li>
+                    <li><a href="#">Chờ duyệt</a></li>
+                    <li><a href="#">Đã hủy</a></li>
+                    <li><a href="#">Từ chối</a></li>
+                    <li><a href="#">Chờ xử lý</a></li>
+                </ul>
+            </div>
+            <div class="so-lenh__lenh footer-nav-popup__select has-submenu dropdown">
+                <a class="dropdown-toggle" title="Danh mục"><span>Lệnh trong ngày</span><i class="fas fa-angle-down"></i></a>
+                <ul class="dropdown-menu--mua dropdown-menu">
+                    <li><a href="#" data-value="lenh-trong-ngay">Lệnh trong ngày</a></li>
+                    <li><a href="#" data-value="lenh-phien-ke-tiep">Lệnh phiên kế tiếp</a></li>
+                    <li><a href="#" data-value="gio-lenh">Giỏ lệnh</a></li>
+                </ul>
+            </div>
+
+            <table class="so-lenh__table">
+                <colgroup>
+                    <col style="width: 15px">
+                    <col style="width: 31px">
+                    <col style="width: 50px">
+                    <col style="width: 52px">
+                    <col style="width: 57px">
+                    <col style="width: 43px">
+                    <col style="width: 33px">
+                    <col class="so-lenh__table__edit">
+                    <col class="so-lenh__table__copy">
+                <thead>
+                <th><input class="dropdown__checkall" type="checkbox" name="" value=""></th>
+                <th>Lệnh</th>
+                <th>Mã</th>
+                <th>KL</th>
+                <th>KL Khớp</th>
+                <th>Giá</th>
+                <th>TT</th>
+                <th class="so-lenh__table__edit"></th>
+                <th class="so-lenh__table__copy"></th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer-nav-popup__footer is-minimized">
+		<span class="footer-nav-popup__footer-close">
+			<i class="fas fa-angle-down"></i>
+		</span>
+            <table>
+                <tr>
+                    <td>CK</td>
+                    <td>: <strong>Chờ khớp</strong></td>
+                </tr>
+                <tr>
+                    <td>K</td>
+                    <td>: <strong>Khớp</strong></td>
+                </tr>
+                <tr>
+                    <td>KMP</td>
+                    <td>: <strong>Khớp một phần</strong></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>CD</td>
+                    <td>: <strong>Chờ duyệt</strong></td>
+                </tr>
+                <tr>
+                    <td>ĐH</td>
+                    <td>: <strong>Đã hủy</strong></td>
+                </tr>
+                <tr>
+                    <td>TC</td>
+                    <td>: <strong>Từ chối</strong></td>
+                </tr>
+                <tr>
+                    <td>CXL</td>
+                    <td>: <strong>Chờ xử lý</strong></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- DAnh muc -->
+    <div id="danh-muc-popup" class="footer-nav-popup danh-muc-popup is-hidden">
+        <div class="footer-nav-popup__bar d-flex space-between align-center">
+		<span class="footer-nav-popup__title">
+			<i class="fas fa-book"></i>Danh mục
+		</span>
+            <span class="footer-nav-popup__close">
+			<i class="fas fa-angle-down"></i>
+		</span>
+        </div>
+        <div class="footer-nav-popup__header d-flex space-between align-center">
+            <strong>Tài khoản</strong>
+            <div class="danh-muc__tk footer-nav-popup__select has-submenu dropdown">
+                <a class="dropdown-toggle" title="Danh mục"><span>4608121</span><i class="fas fa-angle-down"></i></a>
+                <ul class="dropdown-menu--mua dropdown-menu">
+                    <li><a href="#">4608121</a></li>
+                    <li><a href="#">4608128</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-nav-popup__body custom-scrollbar">
+            <table class="danh-muc__table">
+                <colgroup>
+                    <col style="width: 59px">
+                    <col style="width: 23px">
+                    <col style="width: 52px">
+                    <col style="width: 52px">
+                    <col style="width: 57px">
+                    <col style="width: 33px">
+                    <col style="width: 33px">
+                <thead>
+                <th>Mã</th>
+                <th>TT</th>
+                <th>KL</th>
+                <th>Giá TB</th>
+                <th>% Lãi/Lỗ</th>
+                <th>Mua</th>
+                <th>Bán</th>
+                </thead>
+                <tbody>
+                <?php for( $i = 0; $i < 3; $i++ ) : ?>
+                <tr>
+                    <td class="danh-muc__table__code">ACB</td>
+                    <td></td>
+                    <td class="txt-right">100000</td>
+                    <td class="txt-right">25.5</td>
+                    <td class="txt-right">2</td>
+                    <td><a href="#" class="txt-center danh-muc__table__action txt-green" data-action="buying">Mua</a></td>
+                    <td><a href="#" class="txt-center danh-muc__table__action txt-red" data-action="selling">Bán</a></td>
+                </tr>
+                <?php endfor; ?>
+
+                <?php for( $i = 0; $i < 3; $i++ ) : ?>
+                <tr>
+                    <td class="danh-muc__table__code">KAC</td>
+                    <td></td>
+                    <td class="txt-right">100000</td>
+                    <td class="txt-right">25.5</td>
+                    <td class="txt-right">2</td>
+                    <td><a href="#" class="txt-center danh-muc__table__action txt-green" data-action="buying">Mua</a></td>
+                    <td><a href="#" class="txt-center danh-muc__table__action txt-red" data-action="selling">Bán</a></td>
+                </tr>
+                <?php endfor; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Tai San -->
+    <div id="tai-san-popup" class="footer-nav-popup tai-san-popup is-hidden">
+        <div class="footer-nav-popup__bar d-flex space-between align-center">
+		<span class="footer-nav-popup__title">
+			<i class="fas fa-book"></i>Tài sản
+		</span>
+            <span class="footer-nav-popup__close">
+			<i class="fas fa-angle-down"></i>
+		</span>
+        </div>
+        <div class="footer-nav-popup__header d-flex space-between align-center">
+            <strong>Tài khoản</strong>
+            <div class="tai-san__tk footer-nav-popup__select has-submenu dropdown">
+                <a class="dropdown-toggle" title="Danh mục"><span>4608121</span><i class="fas fa-angle-down"></i></a>
+                <ul class="dropdown-menu--mua dropdown-menu">
+                    <li><a href="#">4608121</a></li>
+                    <li><a href="#">4608128</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-nav-popup__body custom-scrollbar">
+            <h5 style="margin-bottom: 10px;">I. TÀI SẢN</h5>
+            <div class="d-flex space-between">
+                <span>Sức mua tài khoản</span>
+                <strong>4.500.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Giá trị CK</span>
+                <strong>4.500.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Số dư tiền</span>
+                <strong>12.500.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Tiền bán còn được ứng</span>
+                <strong>12.500.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Giá trị quyền chờ về</span>
+                <strong>12.500.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Tiền được rút</span>
+                <strong>12.500.000</strong>
+            </div>
+
+            <h5 style="margin-bottom: 10px;">II. DỊCH VỤ TÀI CHÍNH</h5>
+            <div class="d-flex space-between">
+                <span>Giá trị DM tính QTRR</span>
+                <strong>92.000.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>TSR tính QTRR</span>
+                <strong>92.000.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Nợ</span>
+                <strong>9.000.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Tỷ lệ K</span>
+                <strong>5%</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Tỷ lệ Call</span>
+                <strong>12%</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Tỷ lệ Force Sell</span>
+                <strong>12%</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Hạn mức TK</span>
+                <strong>14.000.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Hạn mức Fal</span>
+                <strong>14.000.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Nợ Fal T0</span>
+                <strong>14.000.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Nợ Fal T1</span>
+                <strong>14.000.000</strong>
+            </div>
+            <div class="d-flex space-between">
+                <span>Nợ Fal T2</span>
+                <strong>14.000.000</strong>
+            </div>
+        </div>
+    </div>
+
+    <div id="Dialog-StockBoard-Favourite-AddItem" class="add-region"></div>
+</div>        
+    
+(*=AV.App.region('center');*)
+<div id="footer-block">(*=AV.template('Footer');*)</div>

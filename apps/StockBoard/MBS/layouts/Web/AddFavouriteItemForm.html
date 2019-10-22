@@ -1,0 +1,15 @@
+﻿<form id="add-favourite-form" autocomplete="off" method="post" action="" class="form-option">
+    <table width="100%" id="tblUserOption" cellpadding="0" cellspacing="0" border="0" style="height: 33px; border-top-style: solid; border-top-width: 1px; border-top-color: rgb(102, 102, 102); width: 100%;">
+    <tbody><tr>
+        <td style="width:15%;padding-right:5px;text-align:right;"><input id="favourite-name" type="text" style="height:16px;width:140px" autocomplete="off" class="ac_input"></td>
+        <td id="fsd" style="padding-left:5px;width:100%;">        
+            <input id="btnXoa" type="button" value="(*=Lang.removeAll*)" style="width:85px;height:22px;font-size: 10pt;" onclick="$AV('StockBoard.Favourite.AddItem').removeAll()">
+        </td>
+    </tr>
+    </tbody></table>
+</form>
+<script type="text/javascript">
+    if (location.href.indexOf('ALL') > 0) {
+        $('#add-favourite-form').css('display', 'none');
+    }
+</script>

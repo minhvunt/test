@@ -1,0 +1,16 @@
+(*for(var symbol in Stock.volumns){*)
+	(*for(var i = 0; i < Stock.volumns[symbol].length; i++){*)
+	<div id="volumn-(*=symbol*)-(*=i*)">
+    <table cellspacing="0" cellpadding="3" width="100%">
+    	<tr><th align="right">Khối lượng</th><th align="right">Số lệnh</th></tr>
+    	(*for(var j = 0; j < Stock.volumns[symbol][i].length; j++){*)
+    	<tr><td align="right">
+    		(*=AV.numberFormat(Stock.volumns[symbol][i][j][0])*)
+    	</td><td align="right">
+    		(*=AV.numberFormat(Stock.volumns[symbol][i][j][1])*)
+    	</td></tr>
+        (*}*)
+    </table>
+    </div>
+    (*}*)
+(*}*)

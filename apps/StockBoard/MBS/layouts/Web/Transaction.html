@@ -1,0 +1,132 @@
+﻿<link rel="stylesheet" type="text/css" href="skins/(*=AV.App.layout*)/board.css" />
+<link rel="stylesheet" type="text/css" href="skins/(*=AV.App.layout*)/style.css" />
+<div id="wrap" style="width:(*=Stock.pageWidth*)">
+    <div id="main-header">
+        <div class="header-logo-slogan">
+            <ul class="full-nav-tab" id="main-nav-tab">
+                <li style="float: left;line-height:20px;" class="headerInfoTitle">
+                    <div class="header-logo">
+                        <a href='(*=AV.App.companyInfo.website*)'>
+                            <img src="(*=AV.Options.language=='vi'?'skins/Web/images/LogoSBS-blue-vn.png':'skins/Web/images/LogoSBS-blue-en.png'*)" style='border:0px;' />
+                        </a>
+                    </div>
+                </li>
+                <li style="float: right">
+                    <ul class="nav-tab" id="market-nav-tab">
+                        <li><a id="hide-chart" class="option" href="#" title="(*=Lang.HideChartHint*)" onclick="AV.StockBoard.board.hideChart();">(*=(AV.Options.showChart)?Lang.HIDE_CHART:Lang.SHOW_CHART*)</a></li>
+                        <li><a id="hide-indexes" class="option" href="#" title="(*=Lang.HideRawIndexesHint*)" onclick="AV.StockBoard.board.hideIndexes();">(*=(AV.Options.showRawIndexes)?Lang.HIDE_FULL_INDEXES:Lang.SHOW_FULL_INDEXES*)</a></li>
+                        <li class="sep"></li>
+                        <li>
+                            <a href="https://www.strade.com.vn/" rel="nofollow" style="padding:0px;margin:0px;" target="_blank">
+                                <img src="(*=AV.Options.language=='vi'?'skins/Web/images/strade.png':'skins/Web/images/strade_en.png'*)" style='border:0px;width:150px;' />
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li style="float: left;width:100%;text-align:left;">
+                    <div style="text-align:left; width:48%;float:left;">
+                        <table cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td width="3%">&nbsp;  </td>
+                                    <td align="center" width="7%" valign="bottom" id="TabHeader_HOSETab">
+                                        <a href="ALL.html"><div class="tab(*=(location.href.indexOf('ALL') > 0 ? '' : 'Un')*)Selected">(*=Lang.ALLBOARD*)</div></a>
+                                    </td>
+                                    <td width="1%"></td>
+                                    <td align="center" width="7%" valign="bottom" id="TabHeader_HOSETab">
+                                        <a href="HOSE.html"><div class="tab(*=(location.href.indexOf('HOSE') > 0 ? '' : 'Un')*)Selected">HOSE</div></a>
+                                    </td>
+                                    <td width="1%"></td>
+                                    <td align="center" width="7%" valign="bottom" id="TabHeader_HOSETab">
+                                        <a href="VN30INDEX.html"><div class="tab(*=(location.href.indexOf('VN30INDEX') > 0 ? '' : 'Un')*)Selected">VN30</div></a>
+                                    </td>
+                                    <td width="1%"></td>
+                                    <td align="center" width="7%" valign="bottom" id="TabHeader_HASTCTab">
+                                        <a href="HASE.html"><div class="tab(*=(location.href.indexOf('HASE') > 0 ? '' : 'Un')*)Selected">HNX</div></a>
+                                    </td>
+                                    <td width="1%"></td>
+                                    <td align="center" width="7%" valign="bottom" id="TabHeader_HASTCTab">
+                                        <a href="HNX30INDEX.html"><div class="tab(*=(location.href.indexOf('HNX30INDEX') > 0 ? '' : 'Un')*)Selected">HNX30</div></a>
+                                    </td>
+                                    <td width="1%"></td>
+                                    <td align="center" width="7%" valign="bottom" id="TabHeader_UPCOMTab">
+                                        <a href="UPCOM.html"><div class="tab(*=(location.href.indexOf('UPCOM') > 0 ? '' : 'Un')*)Selected">UPCOM</div></a>
+                                    </td>
+                                    <!-- Chi hien thi voi HOSE va HNX-->
+                                    (*if(location.href.indexOf('HOSE') > 0 || location.href.indexOf('HASE') > 0) {*)
+                                    <td width="1%"></td>
+                                    <td align="center" width="7%" valign="bottom" id="TabHeader_HOSETab">
+                                        <a href="javascript:AV.dialog('StockBoard.Transaction');void(0);"><div class="tabSubSelected">(*=Lang.Put_throught_Trading*)</div></a>
+                                    </td>
+                                    (* } *)
+                                    <td width="1%"></td>
+
+                                    </td>
+                                    <td width="1%"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="text-align:left; width:48%;float:left;">
+                        <table width="100%" id="tblUserOption" cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-size: 13px; padding-right: 5px; font-weight: bold;" align="left" width="1%">(*=Lang.Group*)</td>
+                                    <td width="10%">
+                                        <select style="float:left;width:145px;" id="cat_ff" onchange="javascript:$AV('StockBoard.Favourite.AddItem').selectList(this, true);" onclick="javascript:$AV('StockBoard.Favourite.AddItem').selectClick();">
+                                            <option value="dm">-- (*=Lang.Group*) --</option>
+                                            <option value="hose">HOSE</option>
+                                            <option value="hnx">HNX</option>
+                                            <option value="hnx">HNX lô lẻ</option>
+                                            <option value="upcom">UPCOM</option>
+                                        </select>
+                                    </td>
+                                    <td align="right" width="10%" valign="bottom" id="TabHeader_HOSETab">
+                                        <ul class="select-tab">
+                                            <li>
+                                                <a onclick="$AV('StockBoard.Menu').showMenu(); return false;" id="choose-options-menu">
+                                                    <div class="tabUnSelected" style="width:80px;">(*=Lang.Options*)</div>
+                                                </a>
+                                            </li>
+                                            (*=AV.App.region('menu');*)
+
+                                            <li style="padding-top:3px;"><a class="change-language" onclick='Stock.setLanguage("vi")'><img width="25" height="15" border="0" src="(*=AV.App.image('flag_vn.gif');*)" /></a></li>
+                                            <li style="padding-top:3px;"><a class="change-language" onclick='Stock.setLanguage("en")'><img width="25" height="15" border="0" src="(*=AV.App.image('flag_en.gif');*)" /></a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="main-header-index">
+            <table cellspacing="0" cellpadding="0" width="100%">
+                <tbody>
+                    <tr>
+                        <td align="center">
+                            <div id="session-info">
+                                <div id="session-left">
+                                    <div id="bound-session-right">
+                                        (*=AV.App.region('index');*)
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Menu-horizon-->
+        <div id="Dialog-StockBoard-Top" class="stat-region"></div>
+    </div>
+    <!--End Of Main Header-->
+    (*=AV.App.region('center');*)
+    <div id="footer-block">(*=AV.template('Footer');*)</div>
+    <table width="1000" cellspacing="0"><tr><td>&nbsp;</td></tr></table>
+</div>
+<script type="text/javascript">
+    $AV('StockBoard.Transaction').update();
+    setInterval(Stock.updateTime, 1000);
+</script>

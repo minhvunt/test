@@ -1,0 +1,88 @@
+﻿<div class="chart-area is-hidden">
+    (*
+    var count = 0;
+    for (var i = 0; i < Stock.indexes.length; i++) {
+    if(AV.Options.showIndexes[i]==0) {
+    var j = AV.App.indexMap[i];
+    var name = AV.App.indexName[i];
+    var chartPos = AV.App.chartPosition[i];
+    if(data.indexStatus[j]) {
+    count++;
+    if(count > 5) break;
+    *)
+    <div class="chart__item">
+        <div class="chart__image">
+            <!--<img src="skins/(*=AV.App.layout*)/images/chart.svg" alt="chart">-->
+            <div style="background: url('/ChartData/index.png') no-repeat scroll (*=chartPos[0]*)px (*=chartPos[1]*)px transparent" id="chart-(*=count*)" class="cchart chart-hose" />
+        </div>
+        <div class="chart__info">
+            <div class="(*=data.indexStatus[j].clss*)" id="index-(*=j*)">
+                <div>
+                    <span class="info__ten (*=data.indexStatus[j].clss*)">(*=name*)</span>
+                    <span class="info__point (*=data.indexStatus[j].clss*)">
+                        <span id="index-emo-(*=j*)">(*=data.indexStatus[j].emo*)</span>&nbsp;
+                        <span id="index-2-(*=j*)">(*=AV.numberFormat(AV.StockBoard.indexes[j][2])*)</span>&nbsp;
+                        (<span id="index-3-(*=j*)">(*=((AV.StockBoard.indexes[j][3] && AV.StockBoard.indexes[j][3]>0)?'+':'')+AV.numberFormat(AV.StockBoard.indexes[j][3])*)</span>&nbsp;
+                        <span id="index-4-(*=j*)">(*=((AV.StockBoard.indexes[j][4] && AV.StockBoard.indexes[j][4]>0)?'+':'')+AV.numberFormat(AV.StockBoard.indexes[j][4])*)</span>%)
+                    </span>
+                </div>
+                <div>
+                    <span class="info__cp">(*=AV.numberFormat(AV.StockBoard.indexes[j][6])*) <span class="txt-yellow">CP</span></span>
+                    <span class="info__ty">(*=AV.numberFormat(AV.StockBoard.indexes[j][5], 3)*) <span class="txt-yellow">&nbsp;(*=Lang.moneyUnit*)</span></span>
+                </div>
+                <div>
+                    <span class="txt-green"><i class="fas fa-caret-up"></i>
+                        <span style="color:#FFF" id="index-8-(*=j*)">(*=AV.numberFormat(AV.StockBoard.indexes[j][8])*)</span>
+                        <span>(<span id="index-11-(*=j*)" class="ss-ceil">(*=AV.numberFormat(AV.StockBoard.indexes[j][11])*)</span>)</span>
+                    </span>
+                    <span class="txt-yellow"><i class="fas fa-square"></i>
+                        <span style="color:#FFF" id="index-10-(*=j*)">(*=AV.numberFormat(AV.StockBoard.indexes[j][10])*)</span>
+                    </span>
+                    <span class="txt-red"><i class="fas fa-caret-down"></i>
+                        <span style="color:#FFF" id="index-9-(*=j*)">(*=AV.numberFormat(AV.StockBoard.indexes[j][9])*)</span>
+                        <span>(<span id="index-12-(*=j*)" class="ss-floor">(*=AV.numberFormat(AV.StockBoard.indexes[j][12])*)</span>)</span></span>
+                    <span>(*=AV.StockBoard.getMarketStatus(AV.StockBoard.indexes[j][1])*)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    (*
+    }
+    }
+    }
+    *)
+
+    <div class="chart__item chart__item--table">
+        <table class="chart__table">
+            <tr>
+                <th></th>
+                <th>GD</th>
+                <th>Tổng GT</th>
+            </tr>
+            (*
+            var count = 0;
+            for (var i = 0; i < Stock.indexes.length; i++) {
+            if(AV.Options.showIndexes[i]==0) {
+            var j = AV.App.indexMap[i];
+            var name = AV.App.indexName[i];
+            var chartPos = AV.App.chartPosition[i];
+            if(data.indexStatus[j]) {
+            count++;
+            if(count > 5) break;
+            *)
+            <tr>
+                <td>(*=name*)</td>
+                <td class="(*=data.indexStatus[j].clss*)">(*=AV.numberFormat(AV.StockBoard.indexes[j][6])*)</td>
+                <td class="(*=data.indexStatus[j].clss*)">(*=AV.numberFormat(AV.StockBoard.indexes[j][5], 3)*)</td>
+            </tr>
+            (*
+            }
+            }
+            }
+            *)
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    $AV('StockBoard.Chart').initChartSlider();
+</script>

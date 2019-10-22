@@ -1,0 +1,106 @@
+<div id="info-stock" (*=(AV.Options.showRawIndexes)?'style ="display:block;" ':' style="display:none;" '*) >
+    <table cellpadding="0" cellspacing="0" style="line-height:14px;font-size:11px;border-collapse:collapse" class="table-info-stock" width="100%">
+        <tbody>
+            <tr>
+                (*
+                var count = 0;
+                for (var i = 0; i < 33; i++) {
+                if(AV.Options.showIndexes[i]==0) {
+                var j = AV.App.indexMap[i];
+                var name = AV.App.indexName[i];
+                var chartPos = AV.App.chartPosition[i];
+                if(data.indexStatus[j]) {
+                count++;
+                if(count > 4) break;
+                *)
+                <td align="left" class="index-class">
+                    <div style="padding-left:15px;" class="(*=data.indexStatus[j].clss*)" id="index-(*=j*)">
+                        <span style="color:#FFF">(*=name*)</span>
+                        <span id="index-2-(*=j*)">(*=AV.numberFormat(AV.StockBoard.indexes[j][2])*)</span>&nbsp;
+                        <span id="index-emo-(*=j*)">(*=data.indexStatus[j].emo*)</span>&nbsp;
+                        <span id="index-3-(*=j*)">(*=((AV.StockBoard.indexes[j][3] && AV.StockBoard.indexes[j][3]>0)?'+':'')+AV.numberFormat(AV.StockBoard.indexes[j][3])*)</span>&nbsp;
+                        <span id="index-4-(*=j*)">(*=((AV.StockBoard.indexes[j][4] && AV.StockBoard.indexes[j][4]>0)?'+':'')+AV.numberFormat(AV.StockBoard.indexes[j][4])*)</span>%
+                        <span id="index-1-(*=j*)" style="color:#FFF">(*=AV.StockBoard.getMarketStatus(AV.StockBoard.indexes[j][1])*)</span>
+                        <br />
+                        <span style="color:#FFF">(*=Lang.totalVolumn*): </span>
+                        <span id="index-6-(*=j*)" style="color:#FFF">(*=AV.numberFormat(AV.StockBoard.indexes[j][6])*) | </span>
+                        <span style="color:#FFF">(*=Lang.totalValue*): </span>
+                        <span id="index-5-(*=j*)" style="color:#FFF">(*=AV.numberFormat(AV.StockBoard.indexes[j][5], 3)*)</span><span style="color:#FFF">&nbsp;(*=Lang.moneyUnit*)</span>
+                        <br />
+                        <span class="ss-up" style="padding-right:3px;">(*=AV.StockBoard.specialSymbols[0]*)</span>
+                        <span style="color:#FFF" id="index-8-(*=j*)">(*=AV.numberFormat(AV.StockBoard.indexes[j][8])*)</span>
+                        <span>(<span id="index-11-(*=j*)" class="ss-ceil">(*=AV.numberFormat(AV.StockBoard.indexes[j][11])*)</span>)</span>
+                        <span class="ss-basic" style="font-size:12px; vertical-align:top;padding-right:3px;padding-left:11px;">(*=AV.StockBoard.specialSymbols[2]*)</span>
+                        <span style="color:#FFF" id="index-10-(*=j*)">(*=AV.numberFormat(AV.StockBoard.indexes[j][10])*)</span>
+                        <span class="ss-down" style="padding-right:3px;padding-left:11px;">(*=AV.StockBoard.specialSymbols[1]*)</span>
+                        <span style="color:#FFF" id="index-9-(*=j*)">(*=AV.numberFormat(AV.StockBoard.indexes[j][9])*)</span>
+                        <span>(<span id="index-12-(*=j*)" class="ss-floor">(*=AV.numberFormat(AV.StockBoard.indexes[j][12])*)</span>)</span>
+                    </div>
+
+                    <!-- Xu ly rieng cho VNIndex-->
+                    (* if(j == 0) { *)
+                    <script type="text/javascript">
+                        $(function () {
+                            var moveLeft = 20;
+                            var moveDown = 10;
+
+                            $('div#index-0').hover(function (e) {
+                                $('div#vnindex-pop-up').show();
+                            }, function () {
+                                $('div#vnindex-pop-up').hide();
+                            });
+
+                            $('div#index-0').mousemove(function (e) {
+                                $("div#vnindex-pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
+                            });
+
+                        });
+                    </script>
+                    <div id="vnindex-pop-up">
+                        (* for(var k=0; k < 4 ; k++) {*)
+                        <p class="(*=data.indexStatus[k+2].clss*)" id="index-(*=k+2*)">
+                            <span class="stock-label">(*=Lang['Ses_'+(k+1)]*): </span>
+                            <span id="index-2-(*=k+2*)">(*=AV.numberFormat(AV.StockBoard.indexes[k+2][2])*)</span>&nbsp;&nbsp;
+                            <span id="index-emo-(*=k+2*)">(*=data.indexStatus[k+2].emo*)</span>
+                            <span id="index-3-(*=k+2*)">(*=((AV.StockBoard.indexes[k+2][3] && AV.StockBoard.indexes[k+2][3]>0)?'+':'')+AV.numberFormat(AV.StockBoard.indexes[k+2][3])*)</span>&nbsp;
+                            <span id="index-4-(*=k+2*)">(*=((AV.StockBoard.indexes[k+2][3] && AV.StockBoard.indexes[k+2][3]>0)?'+':'')+AV.numberFormat(AV.StockBoard.indexes[k+2][4])*)</span>%
+                            <span class="stock-label">(*=Lang.totalVolumn*): </span>
+                            <span id="index-6-(*=k+2*)">(*=AV.numberFormat(AV.StockBoard.indexes[k+2][6])*)</span>
+                            <span class="stock-label">(*=Lang.totalValue*): </span>
+                            <span id="index-5-(*=k+2*)">(*=AV.numberFormat(AV.StockBoard.indexes[k+2][5])*)</span>&nbsp;(*=Lang.moneyUnit*)
+                        </p>
+                        (* } *)
+                    </div>
+                    (* } *)
+                </td>
+                (*
+                }
+                }
+                }
+                *)
+            </tr>
+
+            <tr id="chart-block" (*=(AV.Options.showChart)?'style ="display:table-row;" ':' style="display:none;" '*) >
+                (*
+                    var count1 = 0;
+                    for (var i = 0; i < 32; i++) {
+                        if(AV.Options.showIndexes[i]==0) {
+                            var j = AV.App.indexMap[i];
+                            var name = AV.App.indexName[i];
+                            var chartPos = AV.App.chartPosition[i];
+                            if(data.indexStatus[j]) {
+                                count1++;
+                                if(count1 > 4) break;
+                *)
+                                <td align="left" class="index-class">
+                                    <div style="background: url('/ChartData/index.png') no-repeat scroll (*=chartPos[0]*)px (*=chartPos[1]*)px transparent" id="chart-(*=count1*)" class="cchart chart-hose" />
+            </td>
+            (*
+            }
+            }
+            }
+            *)
+            </tr>
+        </tbody>
+    </table>
+</div>

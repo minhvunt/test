@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Stockboard Monitoring</title>
+    <style type="text/css">
+        .dashboard-main {
+            width:100%;
+            display:block;
+        }
+        .dashboard-ping, .dashboard-caches, .dashboard-sb{
+            width:100%;
+            display:block;
+        }
+    </style>
+    <script type="text/javascript" src="3rdparty/jQuery/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-main">
+        <table width="400" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <td width="300">Giá trị theo dõi</td>
+                    <td>Trạng thái</td>
+                </tr>
+            </thead>
+            <tbody id="main-body">
+
+            </tbody>
+        </table>
+        <div class="dashboard-ping">
+            
+        </div>
+        <div class="dashboard-caches">
+
+        </div>
+        <div class="dashboard-sb">
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        function getMonitor()
+        {
+            //Sau 1p tu dong goi lai MonitorHandler.ashx?GetMonitor=all de kiem tra trang t hai cac server ....
+            $.getJSON("MonitorHandler.ashx?GetMonitor=all", function (data) {
+                var items = [];
+                $('#main-body').html('');
+                if (data.pings) {
+                    $.each(data.pings, function (key, val) {
+                        var pingHtml = '<tr>';
+                        pingHtml += '<td>Theo dõi PING : ' + val.IP + '</td>';
+                        var fileName = val.status.toString() + '_small.png';
+                        var status = '<img src="/css/' + fileName + '" style="width:25px;" />';
+                        pingHtml += '<td>' + status + '</td>';
+                        pingHtml += '</tr>';
+
+                        $('#main-body').append(pingHtml);
+                    })
+                }
+
+                if (data.caches) {
+                    $.each(data.caches, function (key, val) {
+                        var pingHtml = '<tr>';
+                        pingHtml += '<td>Memcached : ' + val.IP + '</td>';
+                        var fileName = val.status.toString() + '_small.png';
+                        var status = '<img src="/css/' + fileName + '" style="width:25px;" />';
+                        pingHtml += '<td>' + status + '</td>';
+                        pingHtml += '</tr>';
+
+                        $('#main-body').append(pingHtml);
+                    })
+                }
+
+                if (data.web) {
+                    var pingHtml = '';
+                    pingHtml += '<tr>';
+                    pingHtml += '<td>Thời gian gần nhất</td>';
+                    pingHtml += '<td>' + data.web.PreviousTime + '</td>';
+                    pingHtml += '</tr>';
+
+                    pingHtml += '<tr>';
+                    pingHtml += '<td>Thời gian hiện tại</td>';
+                    pingHtml += '<td>' + data.web.LastTime + '</td>';
+                    pingHtml += '</tr>';
+
+                    pingHtml += '<tr>';
+                    pingHtml += '<td>Version gần nhất</td>';
+                    pingHtml += '<td>' + data.web.PreviousDataVersionID + '</td>';
+                    pingHtml += '</tr>';
+
+                    pingHtml += '<tr>';
+                    pingHtml += '<td>Version hiện tại</td>';
+                    pingHtml += '<td>' + data.web.LastDataVersionID + '</td>';
+                    pingHtml += '</tr>';
+
+                    $('#main-body').append(pingHtml);
+                }
+            });
+        }
+        getMonitor();
+        setInterval(function () { getMonitor() }, 5000);
+    </script>
+</body>
+</html>

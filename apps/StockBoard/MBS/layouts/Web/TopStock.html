@@ -1,0 +1,39 @@
+<div id="stat-region" style="display: block;">
+<table id="statistical-report" width="100%"><tbody valign="top">
+<tr>
+	(*
+	var titles = [Lang.Top10IncStocks, Lang.Top10DecStocks, Lang.Top10TransactionStocks];
+	for(var i = 0; i < 3; i++)
+	{*)
+	<td width="3(*=((i==1)?4:3)*)%">
+       	<div class="stat-block">
+			<center><div class="stat-title(*=((i==1)?' stat-dec-title':'')*)">(*=titles[i]*)</div></center>
+			<table cellpadding="0" cellspacing="0" class="stat-table">
+			<thead>
+				<tr>
+					<td>(*=Lang.StockCode*)</td>
+					<td align="right">(*=Lang.price*)</td>
+					<td align="right">(*=Lang.Volumn*)</td>
+					<td align="right">(*=Lang.Change*)</td>
+					<td align="right">(*=Lang.ValuesMil*)</td>
+				</tr>
+			</thead>
+			<tbody style="color:(*=AV.App.colors[(i==0 || i== 2)?'ss-up':'ss-down']*)">
+			(*for(var j = 0; j < Stock.statStocks[i].length; j++){*)
+				<tr(*=Stock.statStocks[i][j].clss*)>
+					<td align="center">(*=Stock.statStocks[i][j].data[0]*)</td>
+					<td align="right">(*=AV.numberFormat(Stock.statStocks[i][j].data[1])*)</td>
+					<td align="right">(*=Stock.weightFormat(Stock.statStocks[i][j].data[2])*)</td>
+					<td align="right"><div class="stat-change-value" style="text-align:right !important;">(*=Stock.statStocks[i][j].emo + Stock.statStocks[i][j].data[3]*)</div><span class="stat-change-percent" style="width:60px"><div style="float:left;width:10px">(*=Stock.statStocks[i][j].icon*)</div>&nbsp;&nbsp;(*=Stock.statStocks[i][j].emo + Stock.statStocks[i][j].data[4]*)%</span></td>
+					<td align="right">(*=Stock.weightFormat(Stock.statStocks[i][j].data[5])*)</td>
+				</tr>
+			(*}*)
+			</tbody>
+			</table>
+        </div>
+	</td>
+	(*}*)
+</tr>
+</tbody></table>
+<a class="stat-close-button" href="javascript:void(0);" onclick="$AV('StockBoard.Top').close();" style="font-size:20px;">x</a>
+</div>

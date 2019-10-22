@@ -1,0 +1,15 @@
+<div class="spag">
+	<ul class="menuout">
+		<li><span id="izda" class="num"><img src="(*=AV.App.image('arrow-left.jpg');*)" border="0"/></span></li>
+	</ul><div class="supermenu_2"><ul id="lista">
+	(*for (var i = 0; i < data.StockData.length; i++) {*)
+		<li id="wc(*=data['StockData'][i]['Symbol']*)" class="selected-symbol">(*=$AV('StockBoard.Favourite').drawItem(data.StockData[i])*)</li>
+	(*}*)
+	(*for (i=data.StockData.length;i<20;i++){*)
+		<li class="choose-symbol"><a class="show-menu" href="javascript:$AV('StockBoard.Favourite').itemOnclick();void(0);">(*=Lang.selectStock*)</a></li>
+	(*}*)
+	</ul></div><ul class="menuout">
+		<li><span id="dcha" class="num"><img src="(*=AV.App.image('arrow-right.jpg');*)" border="0" height="33px" /></span></li>
+	</ul>
+	<span class="favourite-close-button" onClick="$AV('StockBoard.Favourite').close();AV.Options.showFavouriteItems = false;$.cookie('showFavouriteItems', false);">x</span><br clear="all" />
+</div>

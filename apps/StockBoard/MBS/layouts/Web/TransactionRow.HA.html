@@ -1,0 +1,11 @@
+<tr id="pttTrans(*=data.ptt[0]*)" (*=data.title*)>
+    <td (*= data.clsName *)>(*= data.ptt[0] *)</td>
+    <td (*= data.clsName *)>(*= AV.numberFormat(data.ptt[4]) *)</td>
+    (*if(data.index == 1){*)
+    <td (*= data.clsName *) align="right" >(*= AV.numberFormat(data.ptt[5]) *)</td>
+    <td (*= data.clsName *) align="right">(*= AV.numberFormat(data.ptt[5]) *)</td>
+    <td (*= data.clsName *) align="right" style="border-right:1px solid #315131">(*= AV.numberFormat(data.ptt[7]) *)</td>
+    (*}else{*)
+    <td (*= data.clsName *) align="right" style="border-right:1px solid #315131">(*= AV.numberFormat(data.ptt[5]) *)</td>
+    (*}*)
+</tr>

@@ -1,0 +1,291 @@
+<div id="choose-symbols-block" onclick="AV.StockBoard.isShowMenu = true;">
+<center>
+<table cellpadding="0" cellspacing="1" id="tableChooseSymbols">
+<!--<tr>
+	<td align="center" id="symbolsList">
+		<table cellspacing="1" cellpadding="0" id="tableSymbols">
+		<tr>
+		(*
+		var j = 0;
+		for(var i in AV.StockBoard.allSymbols){*)
+			<td><label><input name="(*=i*)" type="checkbox" (*=(!AV.Options.showSymbols[AV.StockBoard.floor] || AV.Options.showSymbols[AV.StockBoard.floor][i])?'checked':''*) />(*=(i.length > 3)?i.substr(i.length - 3):i*)</label></td>
+			(*
+			j ++;
+			if(j%17 == 0 ){*)
+			</tr><tr>
+			(*}			
+		}*)	
+		</tr></table>
+	</td>
+</tr>-->
+<tr>
+	<td align="center">
+		<table style="padding:4px 12px;" width="100%" cellspacing="1">
+		<tr>
+			<td>
+				<!--<div id="chooseSymbolMenu">
+					<button onClick="$AV('StockBoard.Options').checkAll();">(*=Lang.Select_All*)</button>
+					<button onClick="$AV('StockBoard.Options').unCheckAll();">(*=Lang.Un_Select_All*)</button>
+				</div>-->
+				<!--<br clear="all" />-->
+				<div id="chooseBoard2">
+                    <table class="cb1_tb" style="width:100%;">
+                        <tr>
+                            <td colspan="2">(*=Lang.SHOW_INDEXES*)</td>
+                        </tr>
+                            <tr valign="top">
+                                <td width="50%">
+                                    <!-- HOSE -->
+                                    <label for="chkShowIndex1">
+                                        <!-- VNINDEX -->
+                                        <input type="checkbox" value="1" name="chkShowIndex1" id="chkShowIndex1" (*=(AV.Options.showIndexes[0] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index1*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex2">
+                                        <!-- VN100 -->
+                                        <input type="checkbox" value="1" name="chkShowIndex2" id="chkShowIndex2" (*=(AV.Options.showIndexes[1] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index2*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex3">
+                                        <!-- VN30 -->
+                                        <input type="checkbox" value="1" name="chkShowIndex3" id="chkShowIndex3" (*=(AV.Options.showIndexes[2] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index3*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex4">
+                                        <!-- VNALL -->
+                                        <input type="checkbox" value="1" name="chkShowIndex4" id="chkShowIndex4" (*=(AV.Options.showIndexes[3] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index4*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex5">
+                                        <!-- VNMID -->
+                                        <input type="checkbox" value="1" name="chkShowIndex5" id="chkShowIndex5" (*=(AV.Options.showIndexes[4] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index5*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex6">
+                                        <!-- VNSML -->
+                                        <input type="checkbox" value="1" name="chkShowIndex6" id="chkShowIndex6" (*=(AV.Options.showIndexes[5] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index6*)
+                                    </label>
+                                </td>
+                                <td>
+                                    <!-- HNX / UPCOM -->
+                                    <label for="chkShowIndex7">
+                                        <!-- HNXINdex -->
+                                        <input type="checkbox" value="1" name="chkShowIndex7" id="chkShowIndex7" (*=(AV.Options.showIndexes[6] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index7*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex8">
+                                        <!-- HNX30 -->
+                                        <input type="checkbox" value="1" name="chkShowIndex8" id="chkShowIndex8" (*=(AV.Options.showIndexes[7] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index8*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex9">
+                                        <!-- HNXCon -->
+                                        <input type="checkbox" value="1" name="chkShowIndex9" id="chkShowIndex9" (*=(AV.Options.showIndexes[8] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index9*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex10">
+                                        <!-- HNXFFIndex -->
+                                        <input type="checkbox" value="1" name="chkShowIndex10" id="chkShowIndex10" (*=(AV.Options.showIndexes[9] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index10*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex11">
+                                        <!-- HNXFin -->
+                                        <input type="checkbox" value="1" name="chkShowIndex11" id="chkShowIndex11" (*=(AV.Options.showIndexes[10] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index11*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex12">
+                                        <!-- HNXLCap -->
+                                        <input type="checkbox" value="1" name="chkShowIndex12" id="chkShowIndex12" (*=(AV.Options.showIndexes[11] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index12*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex13">
+                                        <!-- HNXMan -->
+                                        <input type="checkbox" value="1" name="chkShowIndex13" id="chkShowIndex13" (*=(AV.Options.showIndexes[12] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index13*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex14">
+                                        <!-- HNXMSCap -->
+                                        <input type="checkbox" value="1" name="chkShowIndex14" id="chkShowIndex14" (*=(AV.Options.showIndexes[13] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index14*)
+                                    </label>
+                                    <br />
+                                    <label for="chkShowIndex15">
+                                        <!-- UPCOMIndex -->
+                                        <input type="checkbox" value="1" name="chkShowIndex15" id="chkShowIndex15" (*=(AV.Options.showIndexes[14] ==1)?'':' checked'*) />
+                                        (*=Lang.Show_Index15*)
+                                    </label>
+                                </td>
+                            </tr>
+
+                        </table>
+				</div>
+				<div id="chooseBoard1">
+					<table class="cb1_tb">
+					<tr valign="top">
+						<td>(*=Lang.Screen_width*)</td>
+						<td><label for="rbtAuto"><input type="radio" value="auto" name="ScreenWidth" id="rbtAuto"/> Auto</label></td>
+						<td><label for="rbt100percent"><input type="radio" value="100%" name="ScreenWidth" id="rbt100percent"/> 100%</label></td>
+						<td><label for="rbt1000"><input type="radio" value="1000" name="ScreenWidth" id="rbt1000"/> 1000px</label></td>
+						<td><label for="rbt1100"><input type="radio" value="1100" name="ScreenWidth" id="rbt1100"/> 1100px</label></td>
+						<td><label for="rbt1200"><input type="radio" value="1200" name="ScreenWidth" id="rbt1200"/> 1200px</label></td>
+					</tr>
+					<tr valign="top">
+						<td>(*=Lang.Table_type*)</td>
+						<td colspan="2"><label for="rbtnormal"><input type="radio" value="normal" name="TableType" id="rbtnormal"/>(*=Lang.Normal_table*)</label></td>
+						<td colspan="2"><label for="rbtinfinite"><input type="radio" value="infinite" name="TableType" id="rbtinfinite"/>(*=Lang.Infinite_scroll_table*)</label></td>
+						<td colspan="2"><label for="rbtpageReplace"><input type="radio" value="pageReplace" name="TableType" id="rbtpageReplace"/>(*=Lang.Page_replacement_table*)</label></td>
+					</tr>
+					
+					<tr valign="top">
+						<td colspan="3">
+                            <!-- HOSE -->
+                            <label for="chkShowPrice1">
+                                <input type="checkbox" value="1" name="chkShowPrice1" id="chkShowPrice1" (*=(AV.Options.hideColumns[0] == 1)?'':' checked'*) /> 
+                                (*=Lang.Show_session_price_1*)
+                            </label>
+                            <br />          
+                            <label for="chkShowVolume1">
+                                <input type="checkbox" value="1" name="chkShowVolume1" id="chkShowVolume1" (*=(AV.Options.hideColumns[1])?'':' checked'*) /> 
+                                (*=Lang.Show_session_volume_1*)
+                            </label>
+                            <br />
+                            <label for="chkShowPrice2">
+                                <input type="checkbox" value="1" name="chkShowPrice2" id="chkShowPrice2" (*=(AV.Options.hideColumns[2])?'':' checked'*) />
+                                (*=Lang.Show_session_price_2*)
+                            </label>
+                            <br />
+                            <label for="chkShowVolume2">
+                                <input type="checkbox" value="1" name="chkShowVolume2" id="chkShowVolume2" (*=(AV.Options.hideColumns[3])?'':' checked'*) />
+                                (*=Lang.Show_session_volume_2*)
+                            </label>
+                            <br />                  
+							<label for="chkShowForeignBuy">
+                                <input type="checkbox" value="1" name="chkShowForeignBuy" id="chkShowForeignBuy"(*=(AV.Options.hideColumns[8])?'':' checked'*)/> 
+                                (*=Lang.Show_foreign_buy*)
+                            </label>
+                            <br />
+                            <label for="chkShowCurrentRoom">
+                                <input type="checkbox" value="1" name="chkShowCurrentRoom" id="chkShowCurrentRoom"(*=(AV.Options.hideColumns[10])?'':' checked'*)/> 
+                                (*=Lang.Show_current_room*)
+                            </label>
+                            <br />
+                            <label for="chkShowAVGVol">
+                                <input type="checkbox" value="1" name="chkShowAVGVol" id="chkShowAVGVol" (*=(AV.Options.hideColumns[12])?'':' checked'*) />
+                                (*=Lang.Average_Vol*)
+                            </label>
+						</td>
+						<td colspan="4">
+                            <!-- HNX / UPCOM -->
+                            <label for="chkShowBuyVolume">
+                                <input type="checkbox" value="1" name="chkShowBuyVolume" id="chkShowBuyVolume" (*=(AV.Options.hideColumns[4])?'':' checked'*) /> 
+                                (*=Lang.Show_buy_volume*)
+                            </label>
+                            <br />
+							<label for="chkShowSellVolume">
+                                <input type="checkbox" value="1" name="chkShowSellVolume" id="chkShowSellVolume"(*=(AV.Options.hideColumns[5])?'':' checked'*)/> 
+                                (*=Lang.Show_sell_volume*)
+                            </label>
+                            <br />
+                            <label for="chkShowBuyOrderCount">
+                                <input type="checkbox" value="1" name="chkShowBuyOrderCount" id="chkShowBuyOrderCount" (*=(AV.Options.hideColumns[6])?'':' checked'*) />
+                                (*=Lang.Show_buy_order_count*)
+                            </label>
+                            <br />
+							<label for="chkShowSellOrderCount">
+                                <input type="checkbox" value="1" name="chkShowSellOrderCount" id="chkShowSellOrderCount"(*=(AV.Options.hideColumns[7])?'':' checked'*)/> 
+                                (*=Lang.Show_sell_order_count*)
+                            </label>
+                            <br />
+							<label for="chkShowForeignSell">
+                                <input type="checkbox" value="1" name="chkShowForeignSell" id="chkShowForeignSell"(*=(AV.Options.hideColumns[9])?'':' checked'*)/> 
+                                (*=Lang.Show_foreign_sell*)
+                            </label>
+                            <br />
+							<label for="chkShowTotalRoom">
+                                <input type="checkbox" value="1" name="chkShowTotalRoom" id="chkShowTotalRoom" (*=(AV.Options.hideColumns[11])?'':' checked'*) /> 
+                                (*=Lang.Show_total_room*)
+                            </label>
+                            <br />
+                            <label for="chkShowOpenPrice">
+                                <input type="checkbox" value="1" name="chkShowOpenPrice" id="chkShowOpenPrice" (*=(AV.Options.hideColumns[13])?'':' checked'*)  />
+                                (*=Lang.Show_open_price*)
+                            </label>
+						</td>
+					</tr>
+					
+					</table>
+                    <br />
+                    <table class="cb1_tb">
+                        <tr>
+                            <td align="right" id="tbLineCount">(*=Lang.Line_Count*)</td>
+                            <td><input class="cb_input" type="text" value="(*=AV.Options.lineCount*)" id="txtLineCount" onkeypress="return Stock.checkNum(event);" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" id="tdScrollInterval">(*=Lang.Scroll_Interval*)</td>
+                            <td><input class="cb_input" type="text" value="(*=AV.Options.scrollDelay*)" id="txtScrollInterval" onkeypress="return Stock.checkNum(event);" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" id="tdWaitingTime">(*=Lang.Waiting_time*)</td>
+                            <td><input class="cb_input" type="text" value="(*=AV.Options.waitingTime*)" id="txtWaitingTime" onkeypress="return Stock.checkNum(event);" /></td>
+                        </tr>
+                        <!--<tr>
+            <td id="tdFontStyle" colspan="2">(*=Lang.fontStyle*):
+                <label for="rbtFontnormal"><input type="radio" value="normal" name="fontStyle" id="rbtFontnormal"/> (*=Lang.normalFont*)</label>
+                <label for="rbtFontboldHalf"><input type="radio" value="boldHalf" name="fontStyle" id="rbtFontboldHalf"/>(*=Lang.boldMainColumn*)</label>
+                <label for="rbtFontboldAll"><input type="radio" value="boldAll" name="fontStyle" id="rbtFontboldAll"/>(*=Lang.boldAll*)</label>
+            </td>
+        </tr>-->
+                    </table>
+				</div>
+				<div id="choose-other-block">                        
+					<div id="showColumnsBlock"></div>
+					<div id="showIndexBlock">                        
+						<!--<table class="cb1_tb" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tr>
+                            <td id="tdFontStyle">(*=Lang.fontStyle*): 
+                            	<label for="rbtFontnormal"><input type="radio" value="normal" name="fontStyle" id="rbtFontnormal"/> (*=Lang.normalFont*)</label>
+                                <label for="rbtFontboldHalf"><input type="radio" value="boldHalf" name="fontStyle" id="rbtFontboldHalf"/>(*=Lang.boldMainColumn*)</label>
+                                <label for="rbtFontboldAll"><input type="radio" value="boldAll" name="fontStyle" id="rbtFontboldAll"/>(*=Lang.boldAll*)</label></td>
+                            <td id="tdBoardName" align="right">(*=Lang.selectTableStyle*):
+                                <label for="rbtBoarddefault"><input type="radio" value="default" name="selectBoard" id="rbtBoarddefault"/> Board 1</label>
+                               <label for="rbtBoard2"><input type="radio" value="Board2" name="selectBoard" id="rbtBoard2" disabled="disabled"/> Board 2</label>
+                                <label for="rbtBoard3"><input type="radio" value="Board3" name="selectBoard" id="rbtBoard3" disabled="disabled"/> Board 3</label>
+                                <label for="rbtBoard4"><input type="radio" value="Board4" name="selectBoard" id="rbtBoard4" disabled="disabled"/> Board 4</label>
+                                <label for="rbtBoard5"><input type="radio" value="Board5" name="selectBoard" id="rbtBoard5" disabled="disabled"/> Board 5</label></td>
+                        </tr>
+	                    </table>-->
+
+					</div>
+					<center><div id="optionActionButtons">
+						<button onClick="$AV('StockBoard.Options').close();">Cancel</button>
+						<button onClick="$AV('StockBoard.Options').saveOptions();">OK</button>
+					</div></center>
+				</div>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+</center>
+</div>
+(*
+	$('#choose-symbols-block').width($(window).width());
+	$('#rbt'+((AV.Options.screenWidth == '100%')?'100percent':AV.Options.screenWidth)).attr('checked','checked');
+	$('#rbt'+AV.Options.tableType[Stock.floor]).attr('checked','checked');
+	$('#rbtFont'+AV.Options.fontStyle).attr('checked','checked');
+	$('#rbtBoard'+AV.Options.boardStyle).attr('checked','checked');
+*)

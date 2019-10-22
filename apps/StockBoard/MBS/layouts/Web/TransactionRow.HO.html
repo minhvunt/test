@@ -1,0 +1,12 @@
+<tr (*=data.title*)>
+    <td (*=data.clsName*)>(*=data.ptt[0]*)</td>
+    <td (*=data.clsName*)>(*=AV.numberFormat(data.ptt[4])*)</td>
+    <td (*=data.clsName*) align="right">(*=AV.numberFormat(data.ptt[5])*)</td>
+    
+(*if(data.index != 1){*)
+	<td (*=data.clsName*) align="center" nowrap>(*=data.ptt[4]?data.ptt[8]:'&nbsp;'*)</td>
+	<td (*=data.clsName*) align="center" style="border-right:1px solid #315131; padding-right:10px">(*=((data.ptt[9])?data.ptt[9]:'&nbsp;')*)</td>
+(*}else{*)
+	<td (*=data.clsName*) align="center" nowrap style="border-right:1px solid #315131;padding-right:10px">(*=data.ptt[7]*)</td>
+(*}*)
+</tr>

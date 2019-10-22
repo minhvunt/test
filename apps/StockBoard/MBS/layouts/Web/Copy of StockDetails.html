@@ -1,0 +1,682 @@
+﻿<script src="../../../../../3rdparty/jQuery/jquery-1.11.0.min.js"></script>
+<script src="../../../../../3rdparty/highstock/highstock.js"></script>
+<script src="../../../../../3rdparty/highstock/modules/exporting.js"></script>
+<script src="../../../../../3rdparty/jQuery/ui/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../../3rdparty/jQuery/ui/themes/redmond/jquery-ui.min.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../../3rdparty/jQuery/grid/css/ui.jqgrid.css" />
+<script src="../../../../../3rdparty/jQuery/grid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
+<script src="../../../../../3rdparty/jQuery/grid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<style type="text/css">
+    .lable-option{font-size:11px; width:100%; background-color:#1861af; color:#FFF; line-height:24px;font-weight:bold;}
+    #show-stock-details{position:fixed;width:800px;height:250px;font-size:8px;}    
+    #stockWrap {float: left;padding: 0 0 5px;width: 100%;}
+    #chartWrap {float: left;width: 100%;height:210px;}
+    .detailsLeft {width:60%;float:left;}
+    .detailsLeft-bottom{width:100%;float:left;}
+    .detail1 {padding: 5px 5px 5px 0px;}
+    .detail1-left {width:30%;float:left;}
+    .detail1-right {width:65%;float:left;}
+    .detail2 {width:100%;float:left;}
+    .detail2-left {width:48%;float:left;padding-right:5px;}
+    .detail2-right {width:50%;float:left;}    
+    .detailsRight {width:40%;float:left;padding-top:5px;}
+    .close-option {float:right;}
+    #chart-intraday {height:150px;display:block;}
+    .colLeft{background-color:#EEE;}
+    .colBuy{background-color:#def2ff;}
+    .colSell{background-color:#fff1ff;}
+    .tableClss{border:1px solid #d4d4d4;}
+    .tableClss td{height:21px;}
+    .border-bottom{border-bottom:1px solid #d4d4d4;}
+    .border-right{border-right:1px solid #d4d4d4;}
+    .link-chart{float: left;width: 400px;position: absolute;padding: 5px 0px 0px 40px;text-align: center;}
+    .link-chart-main {float: left;display: block;padding-right: 3px;cursor:pointer;}
+    .link-chart-selectd{text-decoration:underline;color:red;}
+    #tabs .tabs-spacer { float: left; height: 200px; }
+  .tabs-bottom .ui-tabs-nav { clear: left; padding: 0 .2em .2em .2em; }
+  .tabs-bottom .ui-tabs-nav li { top: auto; bottom: 0; margin: 0 .2em 1px 0; border-bottom: auto; border-top: 0; }
+  .tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }
+  #tabs-1, #tabs-2, #tabs-3{ margin:0px; padding:0px;height:210px;}
+  html{}
+  body{font-size:11px;}
+  .ui-tabs {padding:0px !important;}
+  .ui-jqgrid .ui-jqgrid-htable {font-size: 11px;line-height: 18px;margin: 0;table-layout: fixed;}
+</style>
+<div id="show-stock-details">
+	<div class="lable-option">
+        <table width="100%">
+            <tr>
+                <td><div id="chart-title"><span id="s-ma">SSI</span> - <span id="s-ten">Chứng khoán Sài Gòn</span></div></td>
+                <td><div class="close-option"><a onclick="$AV('StockBoard.Chart').close();">(*=Lang.close*)</a></div></td>
+            </tr>
+        </table>
+	</div>
+    <div id="stockWrap">
+        <div class="detailsLeft">
+            <div class="detail1">
+                <table width="100%" cellpadding="5" cellspacing="0" style="border:1px solid #d4d4d4;">
+                    <tr>
+                        <td width="50px" class="colLeft"><span id="s-san">HOSE</span></td>
+                        <td class="colLeft" style="padding-left:20px;background-color:#FFF;"><span id="s-nganh">Môi giới chứng khoán</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="detail2">
+                <div class="detail2-left">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="tableClss">
+                        <tr>
+                            <td width="50%" align="center" class="colLeft border-bottom border-right">Giá hiện tại</td>
+                            <td width="50%" align="right" class="border-bottom"><span id="s-giahientai"></span></td>
+                        </tr>
+                        <tr>
+                            <td width="50%" align="center" class="colLeft border-bottom border-right">
+                                KLGD
+                                <br />
+                                Giá dư bán
+                                <br />
+                                Giá dư mua
+                            </td>
+                            <td width="50%" align="right" class="border-bottom">
+                                <span id="s-klgd"></span>
+                                <br />
+                                <span id="s-giaduban"></span>
+                                <br />
+                                <span id="s-giadumua"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%" align="center" class="colLeft border-bottom border-right">Giá bình quân</td>
+                            <td width="50%" align="right" class="border-bottom"><span id="s-giabq"></span></td>
+                        </tr>
+                        <tr>
+                            <td width="50%" align="center" class="colLeft border-bottom border-right">
+                                Giá mở cửa
+                                <br />
+                                Giá cao nhất
+                                <br />
+                                Giá thấp nhất
+                            </td>
+                            <td width="50%" align="right" class="border-bottom">
+                                <span id="s-giamc"></span>
+                                <br />
+                                <span id="s-giacao"></span>
+                                <br />
+                                <span id="s-giathap"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%" align="center" class="colLeft border-right">NN Mua</td>
+                            <td width="50%" align="right"><span id="s-nnmua"></span></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="detail2-right">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="tableClss">
+                        <tr>
+                            <td width="60%" align="right" class="colLeft border-bottom border-right"><span id="s-thaydoi"></span></td>
+                            <td width="40%" align="right" class="border-bottom"><span id="s-phantram"></span></td>
+                        </tr>
+                        <tr>
+                            <td align="center" class="colLeft border-bottom border-right">
+                                KLGD hôm trước
+                                <br />
+                                Tỷ lệ GD trong ngày
+                                <br />
+                                GTGD (Triệu đồng)
+                                <br />
+                            </td>
+                            <td align="right" class="border-bottom">
+                                <span id="s-klgd-homtruoc"></span>
+                                <br />
+                                <span id="s-tyle-gd"></span>
+                                <br />
+                                <span id="s-gtgd"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" class="colLeft border-bottom border-right">Giá tham chiếu</td>
+                            <td align="right" class="border-bottom"><span id="s-giatc"></span></td>
+                        </tr>
+                        <tr>
+                            <td align="center" class="colLeft border-bottom border-right">
+                                &nbsp;
+                                <br />
+                                <span id="s-tgcao"></span>
+                                <br />
+                                <span id="s-tgthap"></span>
+                            </td>
+                            <td align="right" class="border-bottom">
+                                &nbsp;
+                                <br />
+                                <span id="s-giacao-1"></span>
+                                <br />
+                                <span id="s-giathap-1"></span>
+                            </td>
+                        </tr>    
+                        <tr>
+                            <td align="center" class="colLeft border-right">NN Bán</td>
+                            <td align="right"><span id="s-nnban"></span></td>
+                        </tr>                    
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="detailsRight">
+            <table width="100%" cellpadding="0" cellspacing="0" class="tableClss">
+                <tr style="height: 37px;border-bottom: 1px solid #e4e4e4;">
+                    <td width="33%" align="center" class="border-bottom border-right">Dư mua</td>
+                    <td width="33%" align="center" class="border-bottom border-right"><span id="s-timeht"></span></td>
+                    <td width="33%" align="center" class="border-bottom">Dư bán</td>
+                </tr>
+                <tr>
+                    <td class="border-bottom border-right">
+                        <img id="chart-week" width="105" height="60" />
+                    </td>
+                    <td align="right" class="colBuy border-bottom border-right">
+                        <span id="s-bg3"></span>
+                        <br />
+                        <span id="s-bg2"></span>
+                        <br />
+                        <span id="s-bg1"></span>
+                    </td>
+                    <td align="right" class="border-bottom">
+                        <span id="s-bkl3"></span>
+                        <br />
+                        <span id="s-bkl2"></span>
+                        <br />
+                        <span id="s-bkl1"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" class="border-bottom border-right">
+                        <span id="s-mkl1"></span>
+                        <br />
+                        <span id="s-mkl2"></span>
+                        <br />
+                        <span id="s-mkl3"></span>
+                    </td>
+                    <td align="right" class="colSell border-bottom border-right">
+                        <span id="s-mg1"></span>
+                        <br />
+                        <span id="s-mg2"></span>
+                        <br />
+                        <span id="s-mg3"></span>
+                    </td>
+                    <td align="right" class="border-bottom">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td width="33%" align="right" class="colLeft border-bottom border-right"><span id="s-tong-mua"></span></td>
+                    <td width="33%" align="right" class="colLeft border-bottom border-right"><span id="s-chenhlech"></span></td>
+                    <td width="33%" align="right" class="colLeft border-bottom"><span id="s-tong-ban"></span></td>
+                </tr>
+                <tr>
+                    <td width="33%" align="right" class="colLeft border-bottom border-right"><span id="s-klmua"></span></td>
+                    <td width="33%" align="center" class="colLeft border-bottom border-right">Khối lượng</td>
+                    <td width="33%" align="right" class="colLeft border-bottom"><span id="s-klban"></span></td>
+                </tr>
+                <tr>
+                    <td width="33%" align="right" class="colLeft border-right"><span id="s-slmua"></td>
+                    <td width="33%" align="center" class="colLeft border-right">Số lệnh</td>
+                    <td width="33%" align="right" class="colLeft"><span id="s-slban"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="chartWrap">
+        <div class="detailsLeft-bottom">
+            <div id="tabs" class="tabs-bottom">
+              <ul>
+                <li><a href="#tabs-1">Biểu đồ trong ngày</a></li>
+                <li><a href="#tabs-2">Biểu đồ tháng</a></li>
+                <li><a href="#tabs-3">Tin tức</a></li>
+              </ul>
+              <div class="tabs-spacer"></div>
+              <div id="tabs-1">
+                  <span class="detailsLeft">
+                        <span id="chart-intraday">
+                            <p id="chart-day" style="height: 200px;"></p>
+                        </span>
+                  </span>
+                    <span class="detailsRight">
+                        <table id="list3"><tr><td>&nbsp;</td></tr></table>
+                        <p id="pager3"/>
+                    </span>
+                  <div style="clear:both; float:none"></div>
+              </div>
+              <div id="tabs-2">
+                    <span id="chart-full" style="height: 200px;width:790px;display:block;"></span>
+                  <div style="clear:both; float:none"></div>
+              </div>
+              <div id="tabs-3">
+                <table id="list-news"><tr><td>&nbsp;</td></tr></table>
+                        <p id="news-pager"/>
+                  <div style="clear:both; float:none"></div>
+              </div>
+            </div>
+            
+        </div>
+        <div class="detailsRight">
+            
+        </div>
+    </div>    
+</div>
+<div id="news-details" title="Chi tiết tin">
+  Nội dung tin ở đây
+</div>
+<script type="text/javascript">
+    var rows;
+    function loadNews(symbol) {
+        $(function () {
+            jQuery("#list-news").jqGrid({
+                url: 'http://123.30.210.156:8088/ChartGenerator/ChartHandler.ashx?Type=7&Symbol=' + symbol + '&callback=?',
+                datatype: 'json',
+                colNames: ['STT', 'TG', 'Tiêu đề'],
+                colModel: [
+                    { name: 'id', index: 'id', width: 30, align: "center", sorttype: "int" },
+                    { name: 'time', index: 'time', width: 120, align: "center", sorttype: "date" },
+                    { name: 'title', index: 'title', width:620}
+                ],
+                rowNum: 20,
+                rowList: [20, 50, 100],
+                pager: '#news-pager',
+                jsonReader: {
+                    root: "rows",
+                    page: "page",
+                    total: "total",
+                    records: "records",
+                    cell: "row",
+                    id: "id"
+                }
+            }).navGrid('#news-pager', { edit: false, add: false, del: false });
+
+            $('#list-news').setGridParam({
+                onPaging: function () {
+                    //make something here
+                    bindNewClick();
+                }
+            });
+        });
+    }
+
+    function bindNewClick() {
+        var tmp = jQuery('#list-news').find('tr');
+        if (tmp.length > 0) {
+            var newId = jQuery(tmp[1]).attr('id');
+            var oldId = -1;
+            if (rows != null && rows.length > 0) {
+                oldId = jQuery(rows[1]).attr('id');
+            }
+            
+            if (newId !== oldId || rows.length !== tmp.length) {
+                console.log('bind news click');
+                rows = jQuery('#list-news').find('tr');
+                rows.bind('click', function (event) {
+                    var id = $(this).attr('id');
+                    //Load chi tiet tin
+                    var content = '';
+                    var title = '';
+                    $.getJSON('http://123.30.210.156:8088/ChartGenerator/ChartHandler.ashx?Type=8&newsid=' + id + '&callback=?', function (data) {
+                        if (data[0] !== 'undefined') {
+                            content = data[0].Content;
+                            title = data[0].Title;
+                            $('#news-details').attr('title', title);
+                            $('.ui-dialog-title').html(title);
+                            $('#news-details').html(content);
+                            $('#news-details').dialog({
+                                width: 450,
+                                height: 250,
+                                maxWidth: 600,
+                                maxHeight: 300
+                            });
+                        }
+                    });
+                });
+            }
+        } 
+    }
+    function loadData(symbol)
+    {
+        $(function () {
+            jQuery("#list3").jqGrid({
+                url: 'http://123.30.210.156:8088/ChartGenerator/ChartHandler.ashx?Type=6&Symbol=' + symbol + '&callback=?',
+                datatype: 'json',
+                colNames: ['STT', 'TG', 'Giá', '+/-', 'KL'],
+                colModel: [
+                    { name: 'id', index: 'id', width: 30, align: "center", sorttype: "int" },
+                    { name: 'time', index: 'time', width: 70, align: "center", sorttype: "date" },
+                    { name: 'price', index: 'price', width: 50, align: "right", sorttype: "float" },
+                    { name: 'diff', index: 'diff', width: 50, align: "right", sorttype: "float"},
+                    { name: 'vol', index: 'vol', width: 90, align: "right", sorttype: "float", formatter: "number", formatoptions: { decimalSeparator: ".", thousandsSeparator: ",", decimalPlaces: 0, defaultValue: '0' } }
+                ],
+                rowNum: 50,
+                rowList: [50, 100, 200],
+                pager: '#pager3',
+                jsonReader: {
+                    root: "rows",
+                    page: "page",
+                    total: "total",
+                    records: "records",
+                    cell: "row",
+                    id: "id"
+                }
+            }).navGrid('#pager3', { edit: false, add: false, del: false });
+        });
+    }
+
+    function loadRealtimeChart(symbol, range)
+    {
+        $(function () {
+            $.getJSON('http://123.30.210.156:8088/ChartGenerator/ChartHandler.ashx?Type=5&Symbol=' + symbol + '&Range=' + range + "&callback=?", function (data) {
+                // split the data set into ohlc and volume
+                var ohlc = [],
+                    volume = [],
+                    dataLength = data.length;
+
+                for (i = 0; i < dataLength; i++) {
+                    ohlc.push([
+                        data[i][0], // the date
+                        data[i][4] // close
+                    ]);
+
+                    volume.push([
+                        data[i][0], // the date
+                        data[i][5] // the volume
+                    ])
+                }
+                //console.log(volume);
+                // create the chart
+                $('#chart-day').highcharts('StockChart', {
+                    rangeSelector: {
+                        buttons: [{
+                            type: 'hour',
+                            count: 1,
+                            text: '1h'
+                        }, {
+                            type: 'all',
+                            count: 1,
+                            text: 'All'
+                        }],
+                        selected: 1,
+                        enabled: 1,
+                        inputEnabled : false
+                    },
+                    scrollbar: {
+                        enabled: false
+                    },
+                    navigator: {
+                        enabled: false
+                    },
+                    title: {
+                        margin: 0
+                    },
+                    exporting:{
+                        enabled : false
+                    },
+                    credits: {
+                        href:'http://vfpress.vn',
+                        text:'vfpress.vn'
+                    },
+
+                    yAxis: [{
+                        height: 120,
+                        gridLineColor: '#FFF',
+                        labels: { enabled: false }
+                    }, {
+                        top:125,
+                        height: 60,
+                        labels: { enabled: false }
+                    }],
+                    xAxis: [{
+                        labels: { enabled: false }
+                    }],
+                    series: [{
+                        type: 'spline',
+                        data: ohlc,
+                        name: 'SSI',
+                        tooltip: {
+                            valueDecimals: 1
+                        }
+                    }, {
+                        type: 'column',
+                        name: 'Volume',
+                        data: volume,
+                        yAxis: 1
+                    }]
+                });
+            });
+        });
+    }
+
+    function loadChart(symbol, range) {
+        $(function () {
+            $.getJSON('http://123.30.210.156:8088/ChartGenerator/ChartHandler.ashx?Type=5&Symbol=' + symbol + '&Range=' + range + "&callback=?", function (data) {
+                // split the data set into ohlc and volume
+                var ohlc = [],
+                    volume = [],
+                    dataLength = data.length;
+
+                for (i = 0; i < dataLength; i++) {
+                    ohlc.push([
+                        data[i][0], // the date
+                        data[i][1], // open
+                        data[i][2], // high
+                        data[i][3], // low
+                        data[i][4] // close
+                    ]);
+
+                    volume.push([
+                        data[i][0], // the date
+                        data[i][5] // the volume
+                    ])
+                }
+                //console.log(volume);
+                // create the chart
+                $('#chart-full').highcharts('StockChart', {
+                    rangeSelector: {
+                        selected: 1,
+                        enabled: 1,
+                        inputEnabled: false
+                    },
+                    scrollbar: {
+                        enabled: false
+                    },
+                    navigator: {
+                        enabled: false
+                    },
+                    title: {
+                        margin: 0
+                    },
+                    credits: {
+                        href: 'http://vfpress.vn',
+                        text: 'vfpress.vn'
+                    },
+                    yAxis: [{
+                        height: 150,
+                        gridLineColor: '#FFF',
+                        labels: { enabled: false }
+                    }, {
+                        top: 125,
+                        height: 60,
+                        labels: { enabled: false }
+                    }],
+                    xAxis: [{
+                        labels: { enabled: false }
+                    }],
+                    series: [{
+                        type: 'spline',
+                        data: ohlc,
+                        name: 'SSI',
+                        tooltip: {
+                            valueDecimals: 1
+                        }
+                    }, {
+                        type: 'column',
+                        name: 'Volume',
+                        data: volume,
+                        yAxis: 1
+                    }]
+                });
+            });
+        });
+    }
+
+    function loadWeekChart(symbol) {
+        $(function () {
+            $.getJSON('http://123.30.210.156:8088/ChartGenerator/ChartHandler.ashx?Type=5&Symbol=' + symbol + '&Range=1w&callback=?', function (data) {
+                // split the data set into ohlc and volume
+                var ohlc = [],
+                    volume = [],
+                    dataLength = data.length;
+
+                for (i = 0; i < dataLength; i++) {
+                    ohlc.push([
+                        data[i][0], // the date
+                        data[i][1], // open
+                        data[i][2], // high
+                        data[i][3], // low
+                        data[i][4] // close
+                    ]);
+
+                    volume.push([
+                        data[i][0], // the date
+                        data[i][5] // the volume
+                    ])
+                }
+                //console.log(volume);
+                // create the chart
+                $('#chart-week-detail').highcharts('StockChart', {
+                    width: 100,
+                    height:60,
+                    rangeSelector: {
+                        enabled: false
+                    },
+                    scrollbar: {
+                        enabled: false
+                    },
+                    navigator: {
+                        enabled: false
+                    },
+                    title: {
+                        enabled:false,
+                        margin: 0
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    yAxis: [{
+                        height: 60,
+                        gridLineColor: '#FFF',
+                        labels: { enabled: false }
+                    }],
+
+                    xAxis: [{
+                        labels: { enabled: false }
+                    }],
+                    series: [{
+                        type: 'candlestick',
+                        data: ohlc,
+                        name: 'SSI',
+                        tooltip: {
+                            valueDecimals: 1
+                        }
+                    }]
+                });
+            });
+        });
+    }
+
+    $(function () {
+        $("#tabs").tabs();
+
+        // fix the classes
+        $(".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *")
+          .removeClass("ui-corner-all ui-corner-top")
+          .addClass("ui-corner-bottom");
+
+        // move the nav to the bottom
+        $(".tabs-bottom .ui-tabs-nav").appendTo(".tabs-bottom");
+
+        //setTimeout('initData()', 5000);
+        initData();
+    });
+
+    function loadStaticData(symbol) {
+        $(function () {
+            $.getJSON('http://123.30.210.156:8088/ChartGenerator/ChartHandler.ashx?Type=9&Symbol=' + symbol + '&callback=?', function (data) {
+                var obj = data[0];
+                if(obj){
+                    $('#s-ma').html(obj.Symbol);
+                    $('#s-ten').html(obj.Name);
+                    $('#s-san').html(obj.FloorName);
+                    $('#s-nganh').html(obj.Sector);
+                    $('#s-giahientai').html(obj.CurrentPrice);
+                    $('#s-klgd').html(obj.KLGD);
+                    $('#s-giaduban').html(obj.BG1);
+                    $('#s-giadumua').html(obj.MG1);
+                    $('#s-giabq').html(obj.GiaBQ);
+                    $('#s-giamc').html(obj.GiaMC);
+                    $('#s-giacao').html(obj.GiaCao);
+                    $('#s-giathap').html(obj.GiaThap);
+                    $('#s-giacao-1').html(obj.GiaCao);
+                    $('#s-giathap-1').html(obj.GiaThap);
+                    $('#s-nnmua').html(obj.NNMua);
+                    $('#s-nnban').html(obj.NNBan);
+
+                    var diff = obj.CurrentPrice > 0 ? obj.CurrentPrice - obj.RefPrice : 0;
+                    var diffPercent = obj.RefPrice > 0 ? (diff/obj.RefPrice)*100 : 0;
+                    $('#s-thaydoi').html(diff);
+                    $('#s-phantram').html(diffPercent);
+
+                    $('#s-klgd-homtruoc').html(obj.LastTotalShare);
+                    $('#s-tyle-gd').html('0');
+                    $('#s-gtgd').html(obj.GTGD);
+
+                    $('#s-giatc').html(obj.RefPrice);
+                    $('#s-bg3').html(obj.BG3);
+                    $('#s-bg2').html(obj.BG2);
+                    $('#s-bg1').html(obj.BG1);
+                    $('#s-bkl3').html(obj.BKL3);
+                    $('#s-bkl2').html(obj.BKL2);
+                    $('#s-bkl1').html(obj.BKL1);                   
+
+                    $('#s-mg3').html(obj.MG3);
+                    $('#s-mg2').html(obj.MG2);
+                    $('#s-mg1').html(obj.MG1);
+                    $('#s-mkl3').html(obj.MKL3);
+                    $('#s-mkl2').html(obj.MKL2);
+                    $('#s-mkl1').html(obj.MKL1);
+
+                    var tong_mua = parseFloat(obj.MKL3) + parseFloat(obj.MKL2) + parseFloat(obj.MKL1);                    
+                    var tong_ban = parseFloat(obj.BKL3) + parseFloat(obj.BKL2) + parseFloat(obj.BKL1);                    
+                    var chenh_lech = parseFloat(tong_mua) - parseFloat(tong_ban);
+
+                    $('#s-tong-mua').html(tong_mua);
+                    $('#s-tong-ban').html(tong_ban);
+                    $('#s-chenhlech').html(chenh_lech);
+
+                    $('#s-klmua').html(obj.KLMua);
+                    $('#s-klban').html(obj.KLBan);
+                    $('#s-slmua').html(obj.SLMua);
+                    $('#s-slban').html(obj.SLBan);
+                }                
+            });
+        });
+    }
+
+    function initData()
+    {
+        loadStaticData('PVX');
+        loadChart('PVX', 'all');
+        loadRealtimeChart('PVX', '1d');
+        loadData('PVX');
+        loadNews('PVX');
+        loadWeekChart('PVX');
+        jQuery('#chart-week').attr('src', 'http://123.30.210.156:8088/ChartGenerator/ChartHandler.ashx?Type=4&Symbol=SSI');
+        setInterval('bindNewClick()', 1000);
+    }
+</script>

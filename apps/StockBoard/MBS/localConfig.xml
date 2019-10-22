@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<companyInfo>
+		<name>
+			<vi>Công ty Cổ phần Chứng khoán Ngân hàng Sài Gòn Thương Tín (Sacombank-SBS)</vi>
+			<en>Sacombank Securities Joint Stock Company (Sacombank-SBS)</en>
+		</name>
+		<compayName>
+			<vi>Công ty Cổ phần Chứng khoán Ngân hàng Sài Gòn Thương Tín (Sacombank-SBS)</vi>
+			<en>Sacombank Securities Joint Stock Company (Sacombank-SBS)</en>
+		</compayName>
+		<email>contact_vn@sbsc.com.vn</email>
+		<fax>(08) 62 55 59 39</fax>
+		<telephone>(08) 62 68 68 68</telephone>
+		<address>
+			<vi>278 Nam Kỳ Khởi Nghĩa, Phường 8, Quận 3, TP. Hồ Chí Minh</vi>
+			<en>278 Nam Ky Khoi Nghia St., Ward 8, Dist.3, HCM City</en>
+		</address>
+		<website>http://www.sbsc.com.vn</website>
+	</companyInfo>
+	<boardType>MULTICOLOR</boardType>
+	<fixedSelections>true</fixedSelections>
+	<indexHightLightColor>#444</indexHightLightColor>
+	<hightlightColor>#555</hightlightColor>
+	<euroStyleVolumn>1</euroStyleVolumn>
+	<volumnUnit>10</volumnUnit>
+	<rubsePriceStyle>1</rubsePriceStyle>
+	<colors>
+		<ss-no>#FFFFFF</ss-no>
+		<ss-ceil>limegreen</ss-ceil>
+		<ss-floor>#ff0000</ss-floor>
+		<ss-basic>#FFFF00</ss-basic>
+		<ss-up>limegreen</ss-up>
+		<ss-down>#ff0000</ss-down>
+		<ss-highlight>#000</ss-highlight>
+		<other-ss-ceil>#009900</other-ss-ceil>
+		<other-ss-floor>#FF0000</other-ss-floor>
+		<other-ss-basic>#DDA409</other-ss-basic>
+		<other-ss-up>#009900</other-ss-up>
+		<other-ss-down>#FF0000</other-ss-down>
+		<other-ss-highlight>#555</other-ss-highlight>
+		<ATOColor>#FFFFFF</ATOColor>
+	</colors>
+	<layout>Local</layout>
+	<skin>Local</skin>
+	<zebraTransactionRow>1</zebraTransactionRow>
+	<zebraTable>1</zebraTable>
+	<selectedSymbolFloat>1</selectedSymbolFloat>
+	<absPrice>1</absPrice>
+	<ATOColor>#FFFFFF</ATOColor>
+	<blackColor>#FFFFFF</blackColor>
+	<viewIndexes>0</viewIndexes>
+	<texthightlightColor>#0000ff</texthightlightColor>
+	<disableHighlight>,28,29,30,31,7,8,9,10,</disableHighlight>
+	<highlightwithStatus>,0,7,8,9,10,20,27,21,</highlightwithStatus>
+	<changeColor>#0000FF</changeColor>
+	<showPTTinBoard>true</showPTTinBoard>
+	<pttScrollHeight>220</pttScrollHeight>
+	<enableChart>0</enableChart>
+	<englishRef>1</englishRef>
+	<Unit>
+		<HO>1</HO>
+		<HA>10</HA>
+		<UPCOM>1</UPCOM>
+	</Unit>
+	<ListByVFPress>0</ListByVFPress>
+	<ListByFloor>1</ListByFloor>
+	<LockList>1</LockList>
+</root>

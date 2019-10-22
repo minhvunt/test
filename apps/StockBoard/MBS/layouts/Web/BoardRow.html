@@ -1,0 +1,73 @@
+<tr id="tr(*=data.symbol*)">
+    <td id="(*=data.symbol*)-0" class="tooltip txt-ma cell-highlight (*=data.security.status*)" data-tippy-content="(*=data.stock[4]*)">
+        <span class="code-wrap"><a href="https://algoplatform.vn/banggia/security.aspx?id=(*=data.symbol*)" target="_blank">(*=data.symbol*)</a><i class="fas fa-times remove"></i></span>
+    </td>
+    <!--Tran-->
+    <td id="(*=data.symbol*)--1" class="txt-pink cell-highlight">(*=data.stock[1]*)</td>
+    <!--San-->
+    <td id="(*=data.symbol*)--2" class="txt-cyan cell-highlight">(*=data.stock[2]*)</td>
+    <!--Tham chieu-->
+    <td id="(*=data.symbol*)--3" class="txt-yellow cell-highlight">(*=data.stock[3]*)</td>
+    <!--Mua GM3-->
+    <td id="(*=data.symbol*)-1" class="(*=data.tradeStatuses[1]*)">(*=((data.prices[1]>=0.01 || data.prices[2]>=0.01)?AV.numberFormat(data.prices[1]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Mua KLM3-->
+    <td id="(*=data.symbol*)-2" class="(*=data.tradeStatuses[1]*) (*if(AV.StockBoard.floor=='UPCOM'){*) cluetip" title="(*=data.symbol;*) - (*=Lang.price;*): (*=AV.numberFormat(data.prices[1]);}*)" rel="#volumn-(*=data.symbol*)-0">(*=((data.prices[2]>=0.01)?Stock.weightFormat(data.prices[2]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Mua GM2-->
+    <td id="(*=data.symbol*)-3" class="(*=data.tradeStatuses[3]*)">(*=((data.prices[3]>=0.01 || data.prices[4]>=0.01)?AV.numberFormat(data.prices[3]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Mua KLM2-->
+    <td id="(*=data.symbol*)-4" class="(*=data.tradeStatuses[3]*)">(*=((data.prices[4]>=0.01)?Stock.weightFormat(data.prices[4]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Mua GM1-->
+    <td id="(*=data.symbol*)-5" class="(*=data.tradeStatuses[5]*)">(*=((data.prices[5]!=0 )?AV.numberFormat(data.prices[5]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Mua GM1-->
+    <td id="(*=data.symbol*)-6" class="(*=data.tradeStatuses[5]*)">(*=((data.prices[6]>=0.01)?Stock.weightFormat(data.prices[6]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Gia Khop-->
+    <td id="(*=data.symbol*)-8" class="(*=data.security.status*) cell-highlight">(*=((Math.abs(data.prices[8])>=0.01)?AV.numberFormat(data.prices[8]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Phan tram thay doi-->
+    <td class="(*=data.security.status*) cell-highlight toggle--percent">
+        <span class="hidden-first" id="(*=data.symbol*)-7">(*=Stock.board.getChangePrice(data.prices[7])*)</span>
+        <span id="(*=data.symbol*)-71">(*=Stock.board.getChangePrice(data.prices[7])*)</span>
+    </td>    
+    <!--KL Khop-->
+    <td id="(*=data.symbol*)-9" class="(*=data.security.status*) cell-highlight">(*=((data.prices[9]>=0.01)?Stock.weightFormat(data.prices[9]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Ban GB1-->
+    <td id="(*=data.symbol*)-11" class="(*=data.tradeStatuses[11]*)">(*=((data.prices[11]!=0)?AV.numberFormat(data.prices[11]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Ban KLB1-->
+    <td id="(*=data.symbol*)-12" class="(*=data.tradeStatuses[11]*)">(*=((data.prices[12]>=0.01)?Stock.weightFormat(data.prices[12]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Ban GB2-->
+    <td id="(*=data.symbol*)-13" class="(*=data.tradeStatuses[13]*)">(*=((data.prices[13]>=0.01 || data.prices[14]>=0.01)?AV.numberFormat(data.prices[13]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Ban KLB2-->
+    <td id="(*=data.symbol*)-14" class="(*=data.tradeStatuses[13]*)">(*=((data.prices[14]>=0.01)?Stock.weightFormat(data.prices[14]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Ban GB3-->
+    <td id="(*=data.symbol*)-15" class="(*=data.tradeStatuses[15]*)">(*=((data.prices[15]>=0.01 || data.prices[16]>=0.01)?AV.numberFormat(data.prices[15]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Ban KLB3-->
+    <td id="(*=data.symbol*)-16" class="(*=data.tradeStatuses[15]*)">(*=((data.prices[16]>=0.01)?Stock.weightFormat(data.prices[16]):AV.StockBoard.specialSymbols[3])*)</td>
+    <!--Tong KL + GT-->
+    <td class="(*=data.security.status*) txt-white toggle--tong">
+        <span class="hidden-first" id="(*=data.symbol*)-10">(*=((data.prices[10]>=0.01)?Stock.weightFormat(data.prices[10]):AV.StockBoard.specialSymbols[3])*)</span>
+        <span id="(*=data.symbol*)-100">(*=((data.prices[10]>=0.01)?Stock.weightFormat(data.prices[10]):AV.StockBoard.specialSymbols[3])*)</span>
+    </td>
+    <!--Du mua + Gia cao-->
+    <td class="cell-highlight toggle--gia">
+        <span class="hidden-first (*=data.tradeStatuses[34]*)" id="(*=data.symbol*)-34">(*=((data.prices[34]>=0.01)?Stock.weightFormat(data.prices[34]):AV.StockBoard.specialSymbols[3])*)</span>
+        <span class="(*=data.tradeStatuses[18]*)" id="(*=data.symbol*)-18">(*=((data.prices[18]>=0.01)?AV.numberFormat(data.prices[18]):AV.StockBoard.specialSymbols[3])*)</span>
+    </td>
+    <!--Du ban + Gia trung binh-->
+    <td class="' + color + ' cell-highlight toggle--gia">
+        <span class="hidden-first (*=data.tradeStatuses[35]*)" id="(*=data.symbol*)-35">(*=((data.prices[35]>=0.01)?Stock.weightFormat(data.prices[35]):AV.StockBoard.specialSymbols[3])*)</span>
+        <span class="(*=data.tradeStatuses[17]*)" id="(*=data.symbol*)-17">(*=((data.prices[17]>=0.01)?AV.numberFormat(data.prices[17]):AV.StockBoard.specialSymbols[3])*)</span>
+    </td>
+    <!--Gia thap nhat-->
+    <td id="(*=data.symbol*)-19" class="(*=data.tradeStatuses[19]*) cell-highlight toggle--gia toggle--hidden">
+        <span>(*=((data.prices[19]>=0.01)?AV.numberFormat(data.prices[19]):AV.StockBoard.specialSymbols[3])*)</span>
+    </td>
+    <!--Tong room + NN Mua-->
+    <td class="toggle--dtnn">
+        <span id="(*=data.symbol*)-27" class="hidden-first (*=data.tradeStatuses[27]*)">(*=((data.prices[27]>=0.01)?AV.numberFormat(data.prices[27],2):AV.StockBoard.specialSymbols[3])*)</span>
+        <span id="(*=data.symbol*)-20" class="(*=data.tradeStatuses[20]*)">(*=((data.prices[20]>=0.01)?Stock.weightFormat(data.prices[20]):AV.StockBoard.specialSymbols[3])*)</span>
+    </td>
+    <!--Room con + NN Ban-->
+    <td class="toggle--dtnn">
+        <span id="(*=data.symbol*)-26" class="hidden-first (*=data.tradeStatuses[26]*)">(*=((data.prices[26]>=0.01)?AV.numberFormat(data.prices[26],2):AV.StockBoard.specialSymbols[3])*)</span>
+        <span id="(*=data.symbol*)-21" class="(*=data.tradeStatuses[21]*)">(*=((data.prices[21]>=0.01)?Stock.weightFormat(data.prices[21]):AV.StockBoard.specialSymbols[3])*)</span>
+    </td>
+</tr>

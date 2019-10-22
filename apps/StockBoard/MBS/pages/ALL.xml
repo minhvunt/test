@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page>
+	<layout>Default</layout>
+	<modules>
+		<module>
+			<name>StockBoard.Board</name>
+			<region>center</region>
+		</module>
+		<module>
+			<name>StockBoard.Index</name>
+			<region>index</region>
+		</module>
+		<module>
+			<name>StockBoard.Menu</name>
+			<region>menu</region>
+		</module>
+    <module>
+      <name>StockBoard.Chart</name>
+      <region>center</region>
+    </module>
+	</modules>
+</page>

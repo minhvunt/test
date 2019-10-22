@@ -1,0 +1,51 @@
+<link rel="stylesheet" type="text/css" href="skins/(*=AV.App.layout*)/board.css"/>
+<link rel="stylesheet" type="text/css" href="skins/(*=AV.App.layout*)/style.css"/>
+<div id="wrap" style="width:(*=Stock.pageWidth*)">
+    <div id="main-header">
+        <div class="header-logo-slogan">
+            <ul class="full-nav-tab" id="main-nav-tab">
+                <li style="float: left;line-height:20px;" class="headerInfoTitle">
+                    <div class="header-logo">
+                        <img src="skins/Web/images/logovf.png" height="25" />
+                    </div>
+                    <span id="serverDate" class="headerInfoTitle">(*=Lang.Transaction_date*):</span>
+                    <span id="serverTime" class="headerInfoTitle">(*=Lang.Transaction_time*):</span>
+                </li>
+                <li style="float: right">
+                    <ul class="nav-tab" id="market-nav-tab">
+                        <li><a id="choose-options-menu" class="option" onclick="$AV('StockBoard.Menu').showMenu(); return false;">(*=Lang.Options*)</a></li>
+                        <li class="sep"></li>
+                        <li><a class="change-language" onClick='Stock.setLanguage("vi")'><img width="25" height="15" border="0" src="(*=AV.App.image('flag_vn.gif');*)"/></a></li>
+                        <li><a class="change-language" onClick='Stock.setLanguage("en")'><img width="25" height="15" border="0" src="(*=AV.App.image('flag_en.gif');*)"/></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="main-header-index">
+                <table cellspacing="0" cellpadding="0" width="100%">
+                    <tbody>
+                    <tr>
+                        <td align="center">
+                            <div id="session-info">
+                                <div id="session-left">
+                                    <div id="bound-session-right">
+                                        (*=AV.App.region('index');*)
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+        <!--Menu-horizon-->
+       (*=AV.App.region('menu');*)
+        </div>
+        <div id="Dialog-StockBoard-Top" class="stat-region"></div>
+    </div>
+    <!--End Of Main Header--> 
+    (*=AV.App.region('center');*)
+    <div id="footer-block">(*=AV.template('Footer');*)</div>
+</div>
+<script type="text/javascript">
+setInterval(Stock.updateTime, 1000);
+</script>

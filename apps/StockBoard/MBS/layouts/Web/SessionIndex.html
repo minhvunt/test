@@ -1,0 +1,32 @@
+<table align="center" width="96%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+	(*for (var i = 0; i < 4; i++) {*)
+	<td width="24%" style="padding-right:2px;padding-left:2px;">
+		<div class="sessionDiv">
+			(*var clss = '',emo='';
+			if(!AV.StockBoard.indexes[i+1] || !AV.StockBoard.indexes[i+1][1] || Math.abs(AV.StockBoard.indexes[i+1][1]) < 0.01){
+				clss  = 'ss-basic';
+			}else{
+				if(AV.StockBoard.indexes[i+1][1] && AV.StockBoard.indexes[i+1][1]>0){
+					clss  = 'ss-up';
+					emo = AV.StockBoard.specialSymbols[0]+'+';
+				}else{
+					clss  = 'ss-down';
+					emo = AV.StockBoard.specialSymbols[1]+'';
+				}
+			}*)
+			<table class="tb_session" width="100%" cellpadding="0" cellspacing="0" border="1" bordercolor="#716E1A">
+			<tr>
+				<td colspan="2">(*=data.label[i][0]*): <span class="(*=clss*)"><span id="index-0-(*=i*)">(*=AV.numberFormat(AV.StockBoard.indexes[i+1]?AV.StockBoard.indexes[i+1][0]:'')*)</span> <span id="index-emo-(*=i*)">(*=emo*)</span><span id="index-1-(*=i*)">(*=AV.numberFormat(AV.StockBoard.indexes[i+1]?AV.StockBoard.indexes[i+1][1]:'')*)</span>&nbsp; <span id="index-2-(*=i*)">(*=AV.numberFormat(AV.StockBoard.indexes[i+1]?AV.StockBoard.indexes[i+1][2]:'')*)%</span></span></td>
+			</tr>
+			<tr>
+				<td>(*=data.label[i][1]*): <span class="(*=clss*)" id="index-3-(*=i*)">(*=AV.numberFormat(AV.StockBoard.indexes[i+1]?AV.StockBoard.indexes[i+1][3]:'')*)</span></td>
+				<td>(*=data.label[i][2]*): <span class="(*=clss*)"><span id="index-4-(*=i*)">(*= AV.numberFormat(AV.StockBoard.indexes[i+1]?AV.StockBoard.indexes[i+1][4]:'')*)</span> &nbsp;(*=Lang.moneyUnit*)</span>
+				</td>
+			</tr>
+			</table>
+		</div>
+	</td>
+	(*}*)
+</tr>
+</table>
